@@ -32,3 +32,9 @@ app.listen(port, function() {
   console.log("we're live!");
   console.log(port);
 });
+
+
+/*SERVER ROUTING*/
+app.post('/api/recipes', function(){
+  console.log('Donuts are yummy');
+})
