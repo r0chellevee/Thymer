@@ -1,0 +1,25 @@
+body {
+    /*background-image: url("http://media.istockphoto.com/photos/fresh-organic-vegetables-spoons-rustic-wooden-backgroundvegetarian-picture-id503054794?k=6&m=503054794&s=170667a&w=0&h=_n2E6s6KOGBGPjI1wOoZ1aw1nSwVnWxpwPTn69tIXXk=");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+
+}
+.recipe {
+  border: 5px solid grey;
+  border-radius: 5px;
+  margin: 10px;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;*/
+}
+.recipeTitle {
+  color: white;
+  text-shadow: #000 0px 0px 1px;
+}
+.recipeDescription {
+  color: #d3d3d3;
+  text-shadow: #000 0px 0px 2px;
+}

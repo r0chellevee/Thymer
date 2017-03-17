@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Recipes</title>
+</head>
+
+
+<body ng-app="thymer">
+
+  <input ng-model="search" class="col-md-4 col-md-offset-4" type="text" name="search" placeholder="search">
+  <div ng-controller="SearchRecipesController">
+    <div ng-repeat="recipe in recipes | filter: search | orderBy: 'title' ">
+      <div class="recipe col-md-6 col-md-offset-3" ng-style="{'background-image':'url({{recipe.image}})'}">
+        <h1 class="recipeTitle">{{ recipe.title }}</h1>
+        <ul>
+          <li class="recipeDescription">{{ recipe.description }}</li>
+        <ul>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+  var thymer = angular.module("thymer", []);
+  thymer.controller('SearchRecipesController', function($scope){
+    $scope.recipeTitle = "Title of Recipe";
+    $scope.recipes = [{
+            "title" : "No Bake cookies",
+            "description" : "cookies you don't have to bake",
+            "image": "http://images.media-allrecipes.com/userphotos/560x315/467751.jpg"
+        },{
+            "title" : "Sugar cookies",
+            "description" : "cookies you do have to bake",
+            "image": "http://images.media-allrecipes.com/userphotos/560x315/1104175.jpg"
+        },{
+            "title" : "Chocolate chip cookies",
+            "description" : "cookies you do have to bake, with chocolate!",
+            "image": "http://images-gmi-pmc.edge-generalmills.com/eb52c020-c145-440c-8445-911f133c0096.jpg"
+        },{
+            "title" : "Oatmeal cookies",
+            "description" : "cookies made from oatmeal",
+            "image": "https://smittenkitchendotcom.files.wordpress.com/2015/05/oatmeal-chocolate-chip-and-pecan-cookies1.jpg"
+        },
+        {
+            "title" : "Sugar free cookies",
+            "description" : "cookies made for old people",
+            "image": "http://d2gk7xgygi98cy.cloudfront.net/5189-3-large.jpg"
+        }];
+  });
+
+
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
