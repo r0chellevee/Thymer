@@ -2,14 +2,15 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongo = require('mongo');
 var mongoose = require('mongoose');
+var Recipe = require('./models')
 var app = express();
 
 
 /*CONNECT TO DATABASE*/
 //make sure to uncomment which connection you're using
 
-// var connection = 'mongodb://thyme:thyme@ds133340.mlab.com:33340/orion-thyme';
-var connection = 'mongodb://localhost/thyme';
+var connection = 'mongodb://thyme:thyme@ds133340.mlab.com:33340/orion-thyme';
+// var connection = 'mongodb://localhost/thyme';
 mongoose.connect(connection);
 mongoose.connection.once('open', function() {
   console.log('Thyme after thyme on: ' + connection)
@@ -34,7 +35,31 @@ app.listen(port, function() {
 });
 
 
+
 /*SERVER ROUTING*/
-app.post('/api/recipes', function(){
-  console.log('Donuts are yummy');
-})
+app.post('/api/recipes', function(req, res, next){
+  var recipe = new Recipe({
+    time: req.body.time,
+    ingredients: req.body.ingredients,
+    steps: req.body.steps,
+    title: req.body.title,
+    author: req.body.author,
+    cuisine: req.body.cuisine,
+    diet: req.body.diet,
+    image: req.body.image
+  });
+  recipe.save(function(err){
+    if (err) throw error; 
+    res.send(200, "Saved to DB");
+    //add redirect to new recipe page
+    next();
+  });    
+});
+
+app.get('/api/recipes', function(req, res, next){
+  Recipe.find(function(err, data) {
+    if (err) throw error;
+    res.status(200).send(data);
+    next();
+  });
+});
