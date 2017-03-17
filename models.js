@@ -8,8 +8,9 @@ var recipeSchema = new mongoose.Schema({
     author: String,
     cuisine: String,
     diet: String,
-    image: String
-}); 
+    image: String,
+    description: String //personal story about the recipe
+});
 
 var Recipe = mongoose.model('Recipe', recipeSchema);
 

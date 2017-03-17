@@ -46,14 +46,15 @@ app.post('/api/recipes', function(req, res, next){
     author: req.body.author,
     cuisine: req.body.cuisine,
     diet: req.body.diet,
-    image: req.body.image
+    image: req.body.image,
+    description: req.body.description //personal note about the recipe
   });
   recipe.save(function(err){
-    if (err) throw error; 
+    if (err) throw error;
     res.send(200, "Saved to DB");
     //add redirect to new recipe page
     next();
-  });    
+  });
 });
 
 app.get('/api/recipes', function(req, res, next){
