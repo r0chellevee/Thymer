@@ -1,21 +1,117 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <title>Recipes</title>
-</head>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <title>Recipes</title>
+  </head>
 
 
-<body ng-app="thymer">
 
-  <div ng-controller="AddRecipeController">
-    <div id="recipeContainer">
-    <!-- TODO: -->
+  <body ng-app="thymer">
+
+
+
+    <div class="row col-md-offset-3">
+      <div class="col-md-12">
+        Recipe Name
+        <div class="row">
+          <div class="col-8 col-sm-6">
+            <input type="text" name="Author" placeholder="Author">
+          </div>
+          <div class="col-4 col-sm-6">
+            Add your recipe here!
+          </div>
+        </div>
+        <div class="row" id="description">
+            <div class="col-8 col-sm-6">
+                <input type="text" name="description" placeholder="description">
+            </div>
+        </div>
+        <div class="row">
+          <input type="text" name="ImageURL" placeholder="Image ImageURL">
+        </div>
+        <div class="row">
+          <div class="col-4">
+            Cuisine
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">American</a>
+              <a class="dropdown-item" href="#">Thai</a>
+              <a class="dropdown-item" href="#">Indian</a>
+              <a class="dropdown-item" href="#">Chinese</a>
+              <a class="dropdown-item" href="#">Mexican</a>
+              <a class="dropdown-item" href="#">Mediteranian</a>
+              <a class="dropdown-item" href="#">Ethiopian</a>
+              <a class="dropdown-item" href="#">Italian</a>
+            </div>
+          </div>
+          <div class="col-4">
+            dietary restrictions
+            <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Vegan</span>
+            <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Dairy Free</span>
+            <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Gluten Free</span>
+            <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">FODMAP Friendly</span>
+            <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Vegetarian</span>
+            <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Carnivoritarian</span>
+            </label>
+
+          </div>
+          <div class="row">
+            ingredients
+            <input type="text" name="QTY" placeholder="QTY">
+            <input type="text" name="ingredients" placeholder="ingredients">
+            <button>Add</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
+
+
+
+
+ <!--        <div class="col-md-4" id="recipeContainer">
+        <div id="currentIngredient">
+        <input class="col-md-4 col-md-offset-6" type="text" name="Ingredient" placeholder="Add Ingredient">
+        <button>Add Ingredient</button>
+        </div>
+
+
+        <div id="currentStep">
+        <input class="col-md-4" type="text" name="Step" placeholder="Add Step">
+        <button>Add Step</button>
+        </div>
+
+ -->
+
+
+
+
+
+
+
+    </div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
 </html>
