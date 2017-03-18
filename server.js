@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongo = require('mongo');
 var mongoose = require('mongoose');
-var Recipe = require('./models')
+var Recipe = require('./models');
 var app = express();
 
 
@@ -13,8 +13,8 @@ var connection = 'mongodb://thyme:thyme@ds133340.mlab.com:33340/orion-thyme';
 // var connection = 'mongodb://localhost/thyme';
 mongoose.connect(connection);
 mongoose.connection.once('open', function() {
-  console.log('Thyme after thyme on: ' + connection)
-})
+  console.log('Thyme after thyme on: ' + connection);
+});
 
 
 
@@ -50,7 +50,9 @@ app.post('/api/recipes', function(req, res, next){
     description: req.body.description //personal note about the recipe
   });
   recipe.save(function(err){
-    if (err) throw error;
+    if(err){
+      throw error;
+    }
     res.send(200, "Saved to DB");
     //add redirect to new recipe page
     next();
@@ -59,7 +61,9 @@ app.post('/api/recipes', function(req, res, next){
 
 app.get('/api/recipes', function(req, res, next){
   Recipe.find(function(err, data) {
-    if (err) throw error;
+    if(err){
+      throw error;
+    }
     res.status(200).send(data);
     next();
   });
