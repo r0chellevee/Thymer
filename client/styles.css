@@ -23,3 +23,8 @@ body {
   color: #d3d3d3;
   text-shadow: #000 0px 0px 2px;
 }
+#description {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+}
