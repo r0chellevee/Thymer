@@ -17,10 +17,14 @@ angular.module('thymer', [
 
   var addRecipe = function(recipe) {
     recipe = json.stringify(recipe);
-    return $http ({
+    $http ({
       method: 'POST',
       url: '/api/recipes',
       data: recipe
+    }).then(function(newRecipe) {
+      //redirect user to newly added recipe
+      //how will we id each recipe
+      //how will we display selected recipe for cookin view
     });
   };
 
@@ -45,12 +49,19 @@ angular.module('thymer', [
     $scope.steps.push([$scope.stepDescription, $scope.stepTime]);
   };
 
+  $scope.vegan = false;
+  $scope.dairyFree = false;
+  $scope.glutenFree = false;
+  $scope.fodMap = false;
+  $scope.vegitarian = false;
+  $scope.carnivoritarian = false;
+
   $scope.ingredients = [];
   $scope.addIngredient = function() {
     $scope.steps.push($scope.ingredient);
   };
 
-  $scope.onClick = function() {
+  $scope.submitRecipe = function() {
 
     var cookTime = function() {
       var results = 0;
@@ -60,6 +71,17 @@ angular.module('thymer', [
       return results;
     };
 
+    var diets = [
+      $scope.vegan,
+      $scope.dairyFree,
+      $scope.glutenFree,
+      $scope.fodMap,
+      $scope.vegitarian,
+      $scope.carnivoritarian
+    ].filter(v => v !== false );
+
+    console.log(diets);
+
     var recipe = {
       time: cookTime(),
       ingredients: $scope.ingredients,
@@ -67,11 +89,14 @@ angular.module('thymer', [
       title: $scope.title,
       author: $scope.author,
       cuisine: $scope.cuisine,
-      diet: $scope.diet,
+      diet: diets,
       image: $scope.image,
       description: $scope.description
     };
 
-    Recipes.addRecipe(recipe);
+
+
+    //send to server and db
+    // Recipes.addRecipe(recipe);
   };
 });

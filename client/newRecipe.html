@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <title>Recipes</title>
+    <script src="/app.js"></script>
+
   </head>
 
 
 
-  <body ng-app="thymer">
-
-
+  <body ng-app="thymer" ng-controller="AddRecipeController">
 
     <div class="row col-md-offset-3">
       <div class="col-md-12">
         Recipe Name
         <div class="row">
           <div class="col-8 col-sm-6">
-            <input type="text" name="Author" placeholder="Author">
+            <input type="text" name="Title" placeholder="Title" ng-model="title">
+          </div>
+          <div class="col-8 col-sm-6">
+            <input type="text" name="Author" placeholder="Author" ng-model="author">
           </div>
           <div class="col-4 col-sm-6">
             Add your recipe here!
@@ -27,11 +30,11 @@
         </div>
         <div class="row" id="description">
             <div class="col-8 col-sm-6">
-                <input type="text" name="description" placeholder="description">
+                <input type="text" name="description" placeholder="description" ng-model="description">
             </div>
         </div>
         <div class="row">
-          <input type="text" name="ImageURL" placeholder="Image ImageURL">
+          <input type="text" name="ImageURL" placeholder="Image ImageURL" ng-model="image">
         </div>
         <div class="row">
           <div class="col-4">
@@ -50,32 +53,38 @@
           <div class="col-4">
             dietary restrictions
             <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input">
+            <input type="checkbox" class="custom-control-input" ng-model="vegan" ng-true-value="'Vegan'" ng-false-value="false">
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Vegan</span>
             <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input">
+            <input type="checkbox" class="custom-control-input" ng-model="dairyFree" ng-true-value="'dairyFree'" ng-false-value="false">
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Dairy Free</span>
             <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input">
+            <input type="checkbox" class="custom-control-input" ng-model="glutenFree" ng-true-value="'glutenFree'" ng-false-value="false">
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Gluten Free</span>
             <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input">
+            <input type="checkbox" class="custom-control-input" ng-model="fodMap" ng-true-value="'fodMap'" ng-false-value="false">
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">FODMAP Friendly</span>
             <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input">
+            <input type="checkbox" class="custom-control-input" ng-model="vegitarian" ng-true-value="'vegitarian'" ng-false-value="false">
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Vegetarian</span>
             <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input">
+            <input type="checkbox" class="custom-control-input" ng-model="carnivoritarian" ng-true-value="'carnivoritarian'" ng-false-value="false">
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Carnivoritarian</span>
             </label>
 
+
           </div>
+
+          <div id="checkCheckBoxArray">
+            <button ng-click="submitRecipe()"> Submit Recipe</button>
+          </div>
+
           <div class="row">
             ingredients
             <input type="text" name="QTY" placeholder="QTY">
