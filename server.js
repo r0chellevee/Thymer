@@ -38,8 +38,12 @@ app.listen(port, function() {
 
 /*SERVER ROUTING*/
 app.post('/api/recipes', function(req, res, next) {
+
+  console.log(req.body);
+
   var recipe = new Recipe({
     time: req.body.time,
+    servings: req.body.servings,
     ingredients: req.body.ingredients,
     steps: req.body.steps,
     title: req.body.title,
@@ -47,11 +51,11 @@ app.post('/api/recipes', function(req, res, next) {
     cuisine: req.body.cuisine,
     diet: req.body.diet,
     image: req.body.image,
-    description: req.body.description //personal note about the recipe
+    description: req.body.description
   });
   recipe.save(function(err) {
     if (err) {
-      throw error;
+      throw err;
     }
     res.send(200, "Saved to DB");
     //add redirect to new recipe page
@@ -61,8 +65,8 @@ app.post('/api/recipes', function(req, res, next) {
 
 app.get('/api/recipes', function(req, res, next) {
   Recipe.find(function(err, data) {
-    if(err) {
-      throw error;
+    if (err) {
+      throw err;
     }
     res.status(200).send(data);
     next();

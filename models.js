@@ -2,14 +2,15 @@ var mongoose = require('mongoose');
 
 var recipeSchema = new mongoose.Schema({
     time: Number,
+    servings: Number,
     ingredients: Array,
     steps: Array,
     title: String,
     author: String,
     cuisine: String,
-    diet: String,
+    diet: Array,
     image: String,
-    description: String //personal story about the recipe
+    description: String
 });
 
 var Recipe = mongoose.model('Recipe', recipeSchema);

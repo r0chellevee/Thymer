@@ -22,34 +22,24 @@
             <input type="text" name="Title" placeholder="Title" ng-model="title">
           </div>
           <div class="col-8 col-sm-6">
+            <input type="number" name="servings" placeholder="Servings" ng-model="servings">
+          </div>
+          <div class="col-8 col-sm-6">
             <input type="text" name="Author" placeholder="Author" ng-model="author">
           </div>
           <div class="col-4 col-sm-6">
-            Add your recipe here!
+             Recipe Description
           </div>
         </div>
         <div class="row" id="description">
             <div class="col-8 col-sm-6">
-                <input type="text" name="description" placeholder="description" ng-model="description">
+                <textarea rows="5" cols="40" name="description" placeholder="Introduce your recipe with a quick personal story!" ng-model="description"> </textarea>
             </div>
         </div>
         <div class="row">
           <input type="text" name="ImageURL" placeholder="Image ImageURL" ng-model="image">
         </div>
         <div class="row">
-          <div class="col-4">
-            Cuisine
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">American</a>
-              <a class="dropdown-item" href="#">Thai</a>
-              <a class="dropdown-item" href="#">Indian</a>
-              <a class="dropdown-item" href="#">Chinese</a>
-              <a class="dropdown-item" href="#">Mexican</a>
-              <a class="dropdown-item" href="#">Mediteranian</a>
-              <a class="dropdown-item" href="#">Ethiopian</a>
-              <a class="dropdown-item" href="#">Italian</a>
-            </div>
-          </div>
           <div class="col-4">
             dietary restrictions
             <label class="custom-control custom-checkbox">
@@ -87,9 +77,51 @@
 
           <div class="row">
             ingredients
-            <input type="text" name="QTY" placeholder="QTY">
-            <input type="text" name="ingredients" placeholder="ingredients">
-            <button>Add</button>
+            <input ng-model="ingredientQty" type="text" name="QTY" placeholder="QTY">
+            <input ng-model="ingredientName" type="text" name="ingredients" placeholder="ingredients">
+            <button ng-click="addIngredient()">Add</button>
+          </div>
+
+          <div class="ingredients">
+            <ul>
+              <li ng-repeat="ingredient in ingredients">
+                {{ingredient}}
+              </li>
+            </ul>
+          </div>
+
+          <div class="stepsSection">
+            <select required ng-model="stepType" name="select type">
+              <option value="prepType">Prep Step</option>
+              <option value="cookType">Cook Step</option>
+            </select>
+            <input ng-model="hrs" class="timeInput" type="number" min="0" max="24" step="1" value="0">hrs
+            <input ng-model="min" class="timeInput" type="number" min="0" max="59" step="1" value="0">min
+            <textarea ng-model="stepDescription" rows="3" cols="40" name="step description" placeholder="Explain the next step here!"> </textarea>
+            <button ng-click="addStep()"> Add Step </button>
+
+            <ol>
+              <li ng-repeat="step in steps">
+                <span>{{displayTime(step.totalMinutes)}}</span>
+                <span>{{step.description}}</span>
+              </li>
+            </ol>
+          </div>
+
+          <div class="cuisineSection">
+            Select Cuisine:
+            <select required ng-model="cuisine" name="select type">
+              <option value="American">American</option>
+              <option value="Thai">Thai</option>
+              <option value="Indian">Indian</option>
+              <option value="Chinese">Chinese</option>
+              <option value="Mexican">Mexican</option>
+              <option value="Mediteranian">Mediteranian</option>
+              <option value="Ethiopian">Ethiopian</option>
+              <option value="Italian">Italian</option>
+            </select>
+          </div>
+
           </div>
         </div>
       </div>
