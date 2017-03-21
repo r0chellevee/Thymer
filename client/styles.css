@@ -41,3 +41,39 @@ body {
 .green {
   background-color: green;
 }*/
+#steps {
+  float: right;
+  margin: 0 0 10px 10px;
+}
+
+.total-time {
+  visibility: hidden;
+}
+
+#timer {
+  background-color: white;
+  -webkit-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
+  float: right;
+  margin: 10px;
+  width: 350px;
+  height: 150px;
+  padding: 25px;
+}
+
+.cooking-title{
+  text-align: center;
+  font-family: 'Lobster Two', cursive;
+  color: white;
+  font-size: 50px;
+}
+
+#ingredients{
+  float: left;
+}
+
+.list-group{
+  padding-left: 10px;
+  margin-left: 10px;
+}

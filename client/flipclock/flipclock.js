@@ -2194,9 +2194,8 @@ var FlipClock;
 			var children = this.factory.$el.find('ul');
 			
 			//find the inserted time to customize view 
-			var insertedTime = parseInt($(this.factory.$el["0"].nextElementSibling).text());
-			time = time ? time : this.factory.time.getCustomHourCounter(insertedTime);
-			
+			// var insertedTime = parseInt($(this.factory.$el["0"].nextElementSibling).text());
+			time = time ? time : this.factory.time.getCustomHourCounter();
 			if(time.length > children.length) {
 				$.each(time, function(i, digit) {
 					t.createList(digit);
@@ -2205,7 +2204,7 @@ var FlipClock;
 			// $(this.createDivider('Seconds')).insertBefore(this.lists[this.lists.length - 2].$el);
 			$(this.createDivider('Minutes')).insertBefore(this.lists[this.lists.length - 2].$el);
 			
-			if(!excludeHours && insertedTime > 60) {
+			if(!excludeHours) {
 				$(this.createDivider('Hours', true)).insertBefore(this.lists[0].$el);
 			}
 			
@@ -2217,11 +2216,11 @@ var FlipClock;
 		 */
 		 
 		flip: function(time, doNotAddPlayClass) {		
-			var insertedTime = parseInt($(this.factory.$el["0"].nextElementSibling).text());
+			// var insertedTime = parseInt($(this.factory.$el["0"].nextElementSibling).text());
 
 			if(!time) {
 
-				time = this.factory.time.getCustomHourCounter(insertedTime);
+				time = this.factory.time.getCustomHourCounter();
 			}	
 
 			this.autoIncrement();
