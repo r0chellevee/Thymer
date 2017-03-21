@@ -44,7 +44,7 @@ app.get('/auth/facebook',
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/' }),
   function(req, res) {
-    res.redirect('/account');
+    res.redirect('/newRecipe');
   });
 
 app.get('/logout', function(req, res){
