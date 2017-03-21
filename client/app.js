@@ -64,6 +64,19 @@ angular.module('thymer', ['ngRoute'
   // .then(function(data) {
   //   $scope.recipes = data;
   // });
+
+  FlipClock($('.total-cook'), 950, {
+    clockFace: 'HourlyCounter',
+    countdown: true,
+    autoStart: true
+  });
+
+  FlipClock($('.step-time'), 250, {
+    clockFace: 'MinuteCounter',
+    countdown: true,
+    autoStart: true
+  });
+
 })
 
 .controller('homeController', function($scope, Recipes) {
@@ -76,7 +89,7 @@ angular.module('thymer', ['ngRoute'
 })
 
 
-.controller('SearchRecipeController', function($scope, Recipes) {
+.controller('recipesController', function($scope, Recipes) {
 
   console.log('getrecipes:', Recipes.getRecipes);
   Recipes.getRecipes()
@@ -85,7 +98,7 @@ angular.module('thymer', ['ngRoute'
   });
 })
 
-.controller('AddRecipeController', function($scope, Recipes) {
+.controller('newRecipeController', function($scope, Recipes) {
 
   $scope.steps = [];
 
