@@ -3,11 +3,13 @@ $(document).ready(function() {
 
   var clocks = [];
 
-  // var stepTime = parseInt($(this).find('.mins').text());
-  // var totalTime = parseInt($(this).find('.total-time').text());
-  // var secondise = function(mins) {
-  //   return mins * 60;
-  // }
+  var stepTime = parseInt($(this).find('.mins').text());
+  var totalTime = parseInt($(this).find('.total-time').text());
+
+  var secondise = function(mins) {
+    return mins * 60;
+  }
+
 
   clocks.push($('body').find('.total-cook').FlipClock(25, {
         clockFace: 'HourlyCounter',
