@@ -1,6 +1,6 @@
 angular.module('thymer.newRecipe', [])
 
-.controller('newRecipeController', function($scope, Recipes) {
+.controller('newRecipeController', function($scope, Recipes, $location) {
 
   $scope.steps = [];
 
@@ -96,6 +96,9 @@ angular.module('thymer.newRecipe', [])
 
     // console.log(recipe);
     //send to server and db
-    Recipes.addRecipe(recipe);
+    Recipes.addRecipe(recipe)
+      .then(function() {
+        $location.path('/searchRecipes');
+      });
   };
 });
