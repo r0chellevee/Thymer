@@ -1,0 +1,16 @@
+#steps {
+  float: right;
+  margin: 0 0 10px 10px;
+}
+
+#timer {
+  float: right;
+  margin: 0 0 10px 10px;
+  width:350px;
+  height:150px;
+}
+
+.timer-container {
+    float:right;
+    margin: 0 0 10px 10px;
+}

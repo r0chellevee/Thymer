@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="cooking.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="/copy.js"></script>
+  <script src="/dummy.js"></script>
+  <title>Cooking</title>
+</head>
+
+<body ng-app="thymer" ng-view>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
+  <li class="breadcrumb-item"><a href="/newRecipe.html">New Recipe</a></li>
+  <li class="breadcrumb-item"><a href="/recipes.html">Recipes</a></li>
+  <li class="breadcrumb-item"><a href="/cooking.html">Start Cooking!</a></li>
+  <li class="breadcrumb-item"><a href="/signup.html">Sign-up Here!</a></li>
+</ol>
+  <!--Assume one object is being received -->
+  <div class="title">{{recipe.title}}</div>
+  <div class="image">{{recipe.image}}</div>
+  <div class="prepTIme">{{recipe.prepTime}}</div>
+  <div class="cookTime">{{recipe.cookTime}}</div>
+  <div class="ingredients">{{recipe.ingredients}}</div>
+  <!-- need to eventually create a voice responsiveness  -->
+  <div class="timer-container">
+    <div id="timer" ng-click="onClick(timer[i])"><img src="https://storage.googleapis.com/instapage-website-live/files/wp-content/uploads/2016/01/Countdown-Timer.jpg" height="150" width="300"></div>
+    <!-- need to see if steps finishing will initiate the next step -->
+    <div id="steps" class="col-5 col-sm-5">  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Saute Onions</h5>
+        <small>5 min</small>
+      </div>
+      <p class="mb-1">Add 1 of coconut oil into a large sauce pan and heat at on a medium heat. Once the oil is hot, start to saute the onions for five minutes or until they start to brown.</p>
+      <small>You should take this time to checko on your rice.</small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Add Rice and Stir</h5>
+        <small class="text-muted">5 min</small>
+      </div>
+      <p class="mb-1">Once the rice and onions are ready, mix the rice onto the sauce pan and start stirring it with the sauted onions. Do this for five minutes while adding in old bay.</p>
+      <small class="text-muted">If you think you need more old bay, you need more old bay.</small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Scramble Egg</h5>
+        <small class="text-muted">4 min</small>
+      </div>
+      <p class="mb-1">Once you've added enough old bay and your rice is looking sufficiently seasoned, crack two eggs and scramble them into your stir fry. Keep mixing the dish until the eggs are cooked.</p>
+      <small class="text-muted">If your stir fry is looking ready earlier, turn down the heat and serve.</small>
+    </a></div>
+  </div>
+</body>
+</html>
