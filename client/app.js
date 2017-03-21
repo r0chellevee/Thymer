@@ -1,7 +1,28 @@
-angular.module('thymer', [
+angular.module('thymer', ['ngRoute'
   // 'AddRecipeController',
   // 'SearchRecipeController' //Tell Nathan we renamed it
 ])
+
+.config(function($routeProvider) {
+  $routeProvider
+  .when('/', {
+    templateUrl: 'partials/home.html',
+    controller: 'homeController'
+  })
+  .when('/cooking', {
+    templateUrl: 'partials/cooking.html',
+    controller: 'cookingController'
+  })
+  .when('/newRecipe', {
+    templateUrl: 'partials/newRecipe.html',
+    controller: 'newRecipeController'
+  })
+  .when('/recipes', {
+    templateUrl: 'partials/recipes.html',
+    controller: 'recipesController'
+  })
+  .otherwise('/')
+})
 
 .factory('Recipes', function($http) {
   //this is scaled to small DB, in the event of bigger DB we will need to fine-tune
@@ -35,6 +56,25 @@ angular.module('thymer', [
     getRecipes: getRecipes
   };
 })
+
+.controller('cookingController', function($scope, Recipes) {
+
+  // console.log('getrecipes:', Recipes.getRecipes);
+  // Recipes.getRecipes()
+  // .then(function(data) {
+  //   $scope.recipes = data;
+  // });
+})
+
+.controller('homeController', function($scope, Recipes) {
+
+  // console.log('getrecipes:', Recipes.getRecipes);
+  // Recipes.getRecipes()
+  // .then(function(data) {
+  //   $scope.recipes = data;
+  // });
+})
+
 
 .controller('SearchRecipeController', function($scope, Recipes) {
 

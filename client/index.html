@@ -5,55 +5,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+ <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/flipclock/flipclock.css">
+  <script src="/flipclock/flipclock.js"></script>
+  <script type="text/javascript" src="/timer.js"></script>
   <!-- tether -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-
-  <title>Thymer</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"> </script>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <script src="/app.js"></script>
+  <title>Thymer</title>
 </head>
 
-<body>
+<body ng-app="thymer">
 <!-- ng-controller="SearchRecipeController" -->
-  <div class="container justify-content">
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="3000">
-      <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active justify-content-center">
-          <img class="d-block img-fluid" src="http://static.fjcdn.com/pictures/Beautiful+food+barbecue_8456da_5468277.jpg" alt="First slide">
-        </div>
-        <div class="carousel-item justify-content-center">
-          <img class="d-block img-fluid" src="http://static.fjcdn.com/pictures/Beautiful_e3a5c7_5469517.jpg" alt="Second slide">
-        </div>
-
-        <!--
-
-        <div class="carousel-item" ng-repeat="recipe in recipes">
-          <img class="d-block img-fluid" src="{{recipe.image}}" alt="{{recipe.name}}">
-        </div>
-
-        -->
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row justify-content-center">
-      <form class="col-2" action="/recipes.html">
-        <input type="submit" value="Search Recipes">
-      </form>
-      <form class="col-2" action="/newRecipe.html">
-        <input type="submit" value="Add New Recipe">
-      </form>
-    </div>
-  </div>
+<div ng-view></div>
 
 <!-- </div> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
