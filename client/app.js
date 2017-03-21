@@ -65,7 +65,17 @@ angular.module('thymer', ['ngRoute'
   //   $scope.recipes = data;
   // });
 
-  FlipClock($('.total-cook'), 950, {
+  var totalTime = 0;
+  var cookTime = function() {
+    for (var i = 0; i < $scope.steps.length; i++) {
+      var step = $scope.steps[i];
+      if (step.type === 'cookType') {
+        totalTime += step.totalMinutes;
+      }
+    }
+  };
+
+  FlipClock($('.total-cook'), totalTime, {
     clockFace: 'HourlyCounter',
     countdown: true,
     autoStart: true
