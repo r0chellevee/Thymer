@@ -50,22 +50,29 @@ body {
   visibility: hidden;
 }
 
+#nav-bar{
+  font-family: 'Lobster Two', cursive;
+  background-image: url("http://cdn.wallpapersafari.com/75/79/g86aNx.jpg");
+}
+
 #timer {
   background-color: white;
   -webkit-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
   float: right;
+  font-family: 'Lobster Two', cursive;
   margin: 10px;
   width: 350px;
   height: 150px;
   padding: 25px;
+  border-radius: 15px;
 }
 
 .cooking-title{
   text-align: center;
   font-family: 'Lobster Two', cursive;
-  color: white;
+  color: red;
   font-size: 50px;
 }
 
