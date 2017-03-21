@@ -43,7 +43,11 @@ body {
 }*/
 #steps {
   float: right;
+  -webkit-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
   margin: 0 0 10px 10px;
+  border-radius: 15px;
 }
 
 .total-time {
@@ -74,6 +78,10 @@ body {
   font-family: 'Lobster Two', cursive;
   color: red;
   font-size: 50px;
+  -webkit-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
+  border-radius: 15px;
 }
 
 #ingredients{
@@ -81,6 +89,10 @@ body {
 }
 
 .list-group{
+  -webkit-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
   padding-left: 10px;
   margin-left: 10px;
+  border-radius: 15px
 }
