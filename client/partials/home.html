@@ -4,27 +4,37 @@
       <li><a href="#/cooking">Cooking</a></li>
       <li><a href="#/recipes">All Recipes</a></li>
       <li><a href="#/signin">Sign In</a></li>
-    </ul> 
+    </ul>
 
 
-  <div class="container justify-content">
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="3000">
-      <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active justify-content-center">
-          <img class="d-block img-fluid" src="http://static.fjcdn.com/pictures/Beautiful+food+barbecue_8456da_5468277.jpg" alt="First slide">
-        </div>
-        <div class="carousel-item justify-content-center">
-          <img class="d-block img-fluid" src="http://static.fjcdn.com/pictures/Beautiful_e3a5c7_5469517.jpg" alt="Second slide">
-        </div>
+  <div class="container" ng-show="hasImages">
+      <br>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators" ng-repeat="recipe in recipes">
+              <li data-target="#myCarousel" data-slide-to="$index" ng-class="{'active': $index == 0}"></li>
+          </ol>
 
-        <!--
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox" ng-repeat="recipe in recipes">
+              <div class="item" ng-class="{'active': $index == 0}">
+                  <img bn-lazy-src="{{recipe.image}}" title="{{recipe.title}}" alt="missing" />
+                  <!-- <div class="carousel-caption">
+                      <h3>{{recipe.title}}</h3>
+                      <p>{{image.description}}</p>
+                  </div> -->
+              </div>
+          </div>
 
-        <div class="carousel-item" ng-repeat="recipe in recipes">
-          <img class="d-block img-fluid" src="{{recipe.image}}" alt="{{recipe.name}}">
-        </div>
-
-        -->
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+          </a>
       </div>
-    </div>
   </div>
 
