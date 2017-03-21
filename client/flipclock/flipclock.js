@@ -1391,7 +1391,7 @@ var FlipClock;
 		 * @return  object  Returns a digitized object
 		 */
 		 
-		getHourCounter: function() {
+		getHourCounter: function(mins) {
 			var obj = this.digitize([
 				this.getHours(),
 				this.getMinutes(true),
@@ -1402,11 +1402,16 @@ var FlipClock;
 		},
 		
 		//Created to remove seconds from HourlyCounter clockface
-		getCustomHourCounter: function() {
+		getCustomHourCounter: function(mins) {
+			mins = mins || undefined;
+			if (mins < 60) {
 			var obj = this.digitize([
+				this.getMinutes(true),
+			])} else {
+			  obj = this.digitize([
 				this.getHours(),
 				this.getMinutes(true),
-			]);
+			])};
 			
 			return obj;
 		},
@@ -2167,7 +2172,7 @@ var FlipClock;
 	 
 	FlipClock.HourlyCounterFace = FlipClock.Face.extend({
 			
-		// clearExcessDigits: true,
+		clearExcessDigits: false,
 
 		/**
 		 * Constructor
@@ -2188,18 +2193,19 @@ var FlipClock;
 			var t = this;
 			var children = this.factory.$el.find('ul');
 			
-			time = time ? time : this.factory.time.getCustomHourCounter();
+			//find the inserted time to customize view 
+			var insertedTime = parseInt($(this.factory.$el["0"].nextElementSibling).text());
+			time = time ? time : this.factory.time.getCustomHourCounter(insertedTime);
 			
 			if(time.length > children.length) {
 				$.each(time, function(i, digit) {
 					t.createList(digit);
 				});
-			}
-			
+			}			
 			// $(this.createDivider('Seconds')).insertBefore(this.lists[this.lists.length - 2].$el);
 			$(this.createDivider('Minutes')).insertBefore(this.lists[this.lists.length - 2].$el);
 			
-			if(!excludeHours) {
+			if(!excludeHours && insertedTime > 60) {
 				$(this.createDivider('Hours', true)).insertBefore(this.lists[0].$el);
 			}
 			
@@ -2210,9 +2216,12 @@ var FlipClock;
 		 * Flip the clock face
 		 */
 		 
-		flip: function(time, doNotAddPlayClass) {
+		flip: function(time, doNotAddPlayClass) {		
+			var insertedTime = parseInt($(this.factory.$el["0"].nextElementSibling).text());
+
 			if(!time) {
-				time = this.factory.time.getCustomHourCounter();
+
+				time = this.factory.time.getCustomHourCounter(insertedTime);
 			}	
 
 			this.autoIncrement();
