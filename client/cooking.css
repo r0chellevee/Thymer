@@ -9,11 +9,20 @@ body {
   background-repeat: no-repeat;
 }
 
+.total-time {
+  visibility: hidden;
+}
+
 #timer {
+  background-color: white;
+  -webkit-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
   float: right;
-  margin: 0 0 10px 10px;
-  width:350px;
-  height:150px;
+  margin: 10px;
+  width: 350px;
+  height: 150px;
+  padding: 25px;
 }
 
 #title {
