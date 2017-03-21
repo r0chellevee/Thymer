@@ -24,7 +24,20 @@ body {
   text-shadow: #000 0px 0px 2px;
 }
 #description {
-  background-color: red;
+/*  background-color: red;
   width: 100px;
-  height: 100px;
+  height: 100px;*/
 }
+
+.newRecipeContainer {
+  border: solid 2px black;
+}
+/*.red {
+  background-color: red;
+}
+.blue {
+  background-color: blue;
+}
+.green {
+  background-color: green;
+}*/
