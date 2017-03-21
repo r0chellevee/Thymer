@@ -4,7 +4,7 @@ $(document).ready(function() {
 
   var stepTime = parseInt($(this).find('.mins').text());
   var totalTime = parseInt($(this).find('.total-time').text());
-  
+
   var secondise = function(mins) {
     return mins * 60;
   }
