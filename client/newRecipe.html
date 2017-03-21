@@ -7,41 +7,33 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <title>Recipes</title>
     <script src="/app.js"></script>
-
   </head>
 
-
-
   <body ng-app="thymer" ng-controller="AddRecipeController">
-    <form action="/index.html">
-      <input type="submit" value="Home">
-    </form>
-    <form action="/newRecipe.html">
-      <input type="submit" value="New Recipe">
-    </form>
-    <form action="/recipes.html">
-      <input type="submit" value="Recipes">
-    </form>
-    <form action="/signup.html">
-      <input type="submit" value="Sign up here!">
-    </form>
-    <div class="row col-md-offset-3">
-      <div class="col-md-12">
+
+    <ul class="nav nav-tabs">
+      <li><a href="/index.html">Home</a></li>
+      <li class="active"><a href="/newRecipe.html">New Recipe</a></li>
+      <li><a href="/recipes.html">All Recipes</a></li>
+      <li><a href="/signin.html">Sign In</a></li>
+    </ul>
+
+    <div class="row col-md-9 col-md-offset-2">
+      <div class="col-md-3">
         Recipe Name
-        <div class="row">
-          <div class="col-8 col-sm-6">
+      </div>
+          <div class="col-md-3">
             <input type="text" name="Title" placeholder="Title" ng-model="title">
           </div>
-          <div class="col-8 col-sm-6">
+          <div class="col-md-6">
             <input type="number" name="servings" placeholder="Servings" ng-model="servings">
           </div>
-          <div class="col-8 col-sm-6">
+          <div class="col-md-6">
             <input type="text" name="Author" placeholder="Author" ng-model="author">
           </div>
-          <div class="col-4 col-sm-6">
+          <div class="col-md-6">
              Recipe Description
           </div>
-        </div>
         <div class="row" id="description">
             <div class="col-8 col-sm-6">
                 <textarea rows="5" cols="40" name="description" placeholder="Introduce your recipe with a quick personal story!" ng-model="description"> </textarea>
@@ -78,19 +70,13 @@
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Carnivoritarian</span>
             </label>
-
-
-          </div>
-
-          <div id="checkCheckBoxArray">
-            <button ng-click="submitRecipe()"> Submit Recipe</button>
           </div>
 
           <div class="row">
             ingredients
             <input ng-model="ingredientQty" type="text" name="QTY" placeholder="QTY">
             <input ng-model="ingredientName" type="text" name="ingredients" placeholder="ingredients">
-            <button ng-click="addIngredient()">Add</button>
+            <button ng-click="addIngredient()">Add Ingredient</button>
           </div>
 
           <div class="ingredients">
@@ -101,25 +87,30 @@
             </ul>
           </div>
 
-          <div class="stepsSection">
-            <select required ng-model="stepType" name="select type">
-              <option value="prepType">Prep Step</option>
-              <option value="cookType">Cook Step</option>
-            </select>
-            <input ng-model="hrs" class="timeInput" type="number" min="0" max="24" step="1" value="0">hrs
-            <input ng-model="min" class="timeInput" type="number" min="0" max="59" step="1" value="0">min
-            <textarea ng-model="stepDescription" rows="3" cols="40" name="step description" placeholder="Explain the next step here!"> </textarea>
-            <button ng-click="addStep()"> Add Step </button>
-
-            <ol>
-              <li ng-repeat="step in steps">
-                <span>{{displayTime(step.totalMinutes)}}</span>
-                <span>{{step.description}}</span>
-              </li>
-            </ol>
+          <div class="stepsSection"> <!-- step type and timers -->
+            <div>
+              <select required ng-model="stepType" name="select type">
+                <option value="prepType">Prep Step</option>
+                <option value="cookType">Cook Step</option>
+              </select>
+              <input ng-model="hrs" class="timeInput" type="number" min="0" max="24" step="1" value="0">hrs
+              <input ng-model="min" class="timeInput" type="number" min="0" max="59" step="1" value="0">min
+            </div>
+            <div>
+              <textarea ng-model="stepDescription" rows="3" cols="40" name="step description" placeholder="Explain the next step here!"> </textarea> <!-- step text input box -->
+              <button ng-click="addStep()"> Add Step </button>
+            </div>
+            <div>
+              <ol>
+                <li ng-repeat="step in steps"> <!-- cooking steps  -->
+                  <span>{{displayTime(step.totalMinutes)}}</span>
+                  <span>{{step.description}}</span>
+                </li>
+              </ol>
+            </div>
           </div>
 
-          <div class="cuisineSection">
+          <div class="cuisineSection"> <!-- cuisine selection drop down -->
             Select Cuisine:
             <select required ng-model="cuisine" name="select type">
               <option value="American">American</option>
@@ -133,8 +124,12 @@
             </select>
           </div>
 
+          <div id="checkCheckBoxArray">
+            <button ng-click="submitRecipe()"> Submit Recipe</button> <!-- submit recipe button -->
           </div>
-        </div>
+
+
+          </div>
       </div>
     </div>
 

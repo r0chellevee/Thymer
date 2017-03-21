@@ -11,18 +11,13 @@
 
 
 <body ng-app="thymer" ng-view>
-  <form action="/index.html">
-    <input type="submit" value="Home">
-  </form>
-  <form action="/newRecipe.html">
-    <input type="submit" value="New Recipe">
-  </form>
-  <form action="/recipes.html">
-    <input type="submit" value="Recipes">
-  </form>
-  <form action="/signup.html">
-    <input type="submit" value="Sign up here!">
-  </form>
+    <ul class="nav nav-tabs">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/newRecipe.html">New Recipe</a></li>
+      <li class="active"><a href="/recipes.html">All Recipes</a></li>
+      <li><a href="/signin.html">Sign In</a></li>
+    </ul>
+
   <input ng-model="search" class="col-md-4 col-md-offset-4" type="text" name="search" placeholder="search">
   <div ng-controller="SearchRecipeController">
     <div ng-repeat="recipe in recipes | filter: search | orderBy: 'title' ">
