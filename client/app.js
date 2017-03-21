@@ -1,27 +1,32 @@
-angular.module('thymer', ['ngRoute'
-  // 'AddRecipeController',
-  // 'SearchRecipeController' //Tell Nathan we renamed it
+angular.module('thymer', [
+  'thymer.cooking',
+  'thymer.home',
+  'thymer.newRecipe',
+  'thymer.searchRecipes',
+  'ngRoute'
 ])
 
 .config(function($routeProvider) {
   $routeProvider
   .when('/', {
-    templateUrl: 'partials/home.html',
+    templateUrl: 'partials/home/home.html',
     controller: 'homeController'
   })
   .when('/cooking', {
-    templateUrl: 'partials/cooking.html',
+    templateUrl: 'partials/cooking/cooking.html',
     controller: 'cookingController'
   })
   .when('/newRecipe', {
-    templateUrl: 'partials/newRecipe.html',
+    templateUrl: 'partials/newRecipe/newRecipe.html',
     controller: 'newRecipeController'
   })
-  .when('/recipes', {
-    templateUrl: 'partials/recipes.html',
-    controller: 'recipesController'
+  .when('/searchRecipes', {
+    templateUrl: 'partials/searchRecipes/searchRecipes.html',
+    controller: 'searchRecipesController'
   })
-  .otherwise('/')
+  .otherwise({
+    redirectTo: '/'
+  });
 })
 
 .factory('Recipes', function($http) {
@@ -54,157 +59,5 @@ angular.module('thymer', ['ngRoute'
   return {
     addRecipe: addRecipe,
     getRecipes: getRecipes
-  };
-})
-
-.controller('cookingController', function($scope, Recipes) {
-
-  // console.log('getrecipes:', Recipes.getRecipes);
-  // Recipes.getRecipes()
-  // .then(function(data) {
-  //   $scope.recipes = data;
-  // });
-
-  var totalTime = 0;
-  var cookTime = function() {
-    for (var i = 0; i < $scope.steps.length; i++) {
-      var step = $scope.steps[i];
-      if (step.type === 'cookType') {
-        totalTime += step.totalMinutes;
-      }
-    }
-  };
-
-  FlipClock($('.total-cook'), totalTime, {
-    clockFace: 'HourlyCounter',
-    countdown: true,
-    autoStart: true
-  });
-
-  FlipClock($('.step-time'), 250, {
-    clockFace: 'MinuteCounter',
-    countdown: true,
-    autoStart: true
-  });
-
-})
-
-.controller('homeController', function($scope, Recipes) {
-
-  // console.log('getrecipes:', Recipes.getRecipes);
-  Recipes.getRecipes()
-  .then(function(data) {
-    console.log("home controller get request")
-    $scope.recipes = data;
-  });
-})
-
-
-.controller('recipesController', function($scope, Recipes) {
-
-  console.log('getrecipes:', Recipes.getRecipes);
-  Recipes.getRecipes()
-  .then(function(data) {
-    $scope.recipes = data;
-  });
-})
-
-.controller('newRecipeController', function($scope, Recipes) {
-
-  $scope.steps = [];
-
-  $scope.addStep = function() {
-    var totalMinutesForStep = $scope.min + (60 * $scope.hrs);
-    var newStep = {
-      type: $scope.stepType,
-      description: $scope.stepDescription,
-      totalMinutes: totalMinutesForStep
-    };
-    $scope.steps.push(newStep);
-    $scope.min = 0;
-    $scope.hrs = 0;
-    $scope.stepDescription = '';
-  };
-
-  //initialize step time values to 0
-  $scope.min = 0;
-  $scope.hrs = 0;
-
-  $scope.displayTime = function(totalMinutes) {
-    if (totalMinutes < 60) {
-      return `${totalMinutes} min `;
-    } else {
-      var hrs = Math.floor(totalMinutes / 60);
-      var min = totalMinutes % 60;
-      return `${hrs} hr ${min} min `;
-    }
-  };
-
-  //initialize diet checkbox values to false
-  $scope.vegan = false;
-  $scope.dairyFree = false;
-  $scope.glutenFree = false;
-  $scope.fodMap = false;
-  $scope.vegitarian = false;
-  $scope.carnivoritarian = false;
-
-  $scope.ingredients = [];
-
-  $scope.addIngredient = function() {
-    var newIngredient = $scope.ingredientQty + ' ' + $scope.ingredientName;
-    $scope.ingredients.push(newIngredient);
-    $scope.ingredientQty = '';
-    $scope.ingredientName = '';
-    console.log($scope.ingredients);
-  };
-
-  $scope.submitRecipe = function() {
-
-    var cookTime = function() {
-      var totalTime = 0;
-      for (var i = 0; i < $scope.steps.length; i++) {
-        var step = $scope.steps[i];
-        if (step.type === 'cookType') {
-          totalTime += step.totalMinutes;
-        }
-      }
-      return totalTime;
-    };
-
-    var diet = [
-      $scope.vegan,
-      $scope.dairyFree,
-      $scope.glutenFree,
-      $scope.fodMap,
-      $scope.vegitarian,
-      $scope.carnivoritarian
-    ].filter(v => v !== false );
-
-    // console.log('time: ', cookTime());
-    // console.log('ingredients: ', $scope.ingredients);
-    // console.log('steps: ', $scope.steps);
-    // console.log('title: ', $scope.title);
-    // console.log('author: ', $scope.author);
-    // console.log('diet: ', diet);
-    // console.log('cuisine: ', $scope.cuisine);
-    // console.log('image: ', $scope.image);
-    // console.log('description: ', $scope.description);
-
-    var recipe = {
-      time: cookTime(), // done
-      servings: $scope.servings,  // done
-      ingredients: $scope.ingredients,  // done
-      steps: $scope.steps, //done
-      title: $scope.title, //done
-      author: $scope.author, //done
-      cuisine: $scope.cuisine, //done
-      diet: diet, //done
-      image: $scope.image, //done
-      description: $scope.description //done
-    };
-
-    // console.log(recipe);
-    //send to server and db
-    Recipes.addRecipe(recipe);
   };
 });
