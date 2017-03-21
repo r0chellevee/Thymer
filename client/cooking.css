@@ -3,6 +3,12 @@
   margin: 0 0 10px 10px;
 }
 
+body {
+  background-image: url("http://www.drodd.com/images15/fried-rice4.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 #timer {
   float: right;
   margin: 0 0 10px 10px;
@@ -10,7 +16,25 @@
   height:150px;
 }
 
-.timer-container {
-    float:right;
-    margin: 0 0 10px 10px;
+#title {
+  text-align: center;
+  color: white;
+  font-family: 'Lobster Two', cursive;
+  font-size: 20px;
+}
+
+.cooking-title{
+  text-align: center;
+  font-family: 'Lobster Two', cursive;
+  color: white;
+  font-size: 50px;
+}
+
+#ingredients{
+  float: left;
+}
+
+.list-group{
+  padding-left: 10px;
+  margin-left: 10px;
 }
