@@ -14,10 +14,18 @@ angular.module('thymer.cooking', [])
   //   }
   // };
 
+  $scope.cookSteps = [];
   $scope.cookStepTimes = [];
+  $scope.prepStepDescriptions = [];
 
+  //sort through and organize step information
   $scope.recipe.steps.forEach(function(step) {
-    $scope.cookStepTimes.push(step.totalMinutes);
+    if (step.type === 'prepType') {
+      $scope.prepStepDescriptions.push(step.description);
+    } else { //cookType steps
+      $scope.cookStepTimes.push(step.totalMinutes);
+      $scope.cookSteps.push(step);
+    }
   });
 
   FlipClock($('.total-cook'), $scope.recipe.time * 60, {

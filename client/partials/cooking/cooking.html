@@ -1,61 +1,65 @@
+<ul class="nav nav-tabs" id="nav-bar">
+  <li><a href="#/home">Home</a></li>
+  <li><a href="#/newRecipe">New Recipe</a></li>
+  <li class="active"><a href="#/cooking">Cooking</a></li>
+  <li><a href="#/searchRecipes">All Recipes</a></li>
+  <li><a href="#/signin">Sign In</a></li>
+</ul>
 
-   <ul class="nav nav-tabs" id="nav-bar">
-      <li><a href="#/home">Home</a></li>
-      <li><a href="#/newRecipe">New Recipe</a></li>
-      <li class="active"><a href="#/cooking">Cooking</a></li>
-      <li><a href="#/searchRecipes">All Recipes</a></li>
-      <li><a href="#/signin">Sign In</a></li>
-    </ul>
-  <!--Assume one object is being received -->
+<div class="container-fluid">
 
-    <div class="row-fluid">
-      <p class="cooking-title">{{recipe.title}}</p>
-      <!-- need to eventually create a voice responsiveness  -->
-     <!--  <div id="timer" class="col-4 col-sm-4" ng-click="onClick(timer[i])"><img src="https://storage.googleapis.com/instapage-website-live/files/wp-content/uploads/2016/01/Countdown-Timer.jpg" height="150" width="300"></div> -->
+  <div class="row"> <!-- Recipe Title Row-->
+    <p class="cooking-title">{{recipe.title}}</p>
+  </div>
 
+  <div class="row">
+    <div class="col-xs-6"><!-- Left Main Content Columns-->
 
-        <div class="row-fluid">
-          <div id="ingredients" class="col-4 col-sm-4">
-            <h3>Ingredients</h3>
-            <ul ng-repeat="ingredient in recipe.ingredients" class="list-group">
-              <li class="list-group-item">{{ingredient}}</li>
-            </ul>
-          </div>
-        <!-- need to see if steps finishing will initiate the next step -->
-
-        <div class="total-cook" id="timer" style="margin:2em;"></div>
-
-
-          <div class="row">
-            <div class="col-4 col-offset-8">
-                <div ng-repeat="step in recipe.steps" id="steps" >
-                  <small>{{step.totalMinutes}} min</small>
-                  <p>{{step.description}}</p>
-                </div>
-            </div>
-          </div>
-
-
-
-
-          <!-- <div class="row-fluid">
-            <div class="col-4 col-offset-8">
-
-              <h3>How to Cook {{recipe.title}}</h3>
-              <div ng-repeat="step in recipe.steps" id="steps" >
-
-                <div class="col-5 col-offset-7 list-group-item list-group-item-action flex-column align-items-start active">
-                  <div class="col-5 col-offset-7"> -->
-<!--                     <small >{{step.totalMinutes}} min</small>
-                    <p>{{step.description}}</p>
-                  </div>
-                </div> -->
-
-              <!-- </div> -->
-            <!-- </div> -->
-          <!-- </div> - -->
-
+      <div class="row-fluid">
+        <h3>Time Until Next Step</h3>
+        <div class="step-time" id="timer" style="margin:2em;"></div>
       </div>
+
+      <div class="row-fluid">
+        <h3>Ingredients</h3>
+          <ul class="list-group">
+              <li ng-repeat="ingredient in recipe.ingredients" class="list-group-item">{{ingredient}}</li>
+          </ul>
+      </div>
+
+      <div class="row-fluid">
+        <h3>Prep</h3>
+          <ul class="list-group">
+              <li ng-repeat="step in prepStepDescriptions" class="list-group-item">{{step}}</li>
+          </ul>
+      </div>
+
     </div>
 
-    <footer class="image" ng-style="{'background-image':'url({{recipe.image}})'}"></footer>
+    <div class="col-xs-6"> <!-- Right Main Content Columns-->
+      <div class="row-fluid">
+        <h3>How to Cook {{recipe.title}}</h3>
+          <ul class="list-group">
+              <li ng-repeat="step in cookSteps" class="list-group-item">
+                <small>{{step.totalMinutes}} min</small>
+                <p>{{step.description}}</p>
+              </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="row-fluid">
+    <div class="col-xs-6">
+      <h3>Time Until This:</h3>
+      <div class="total-cook" id="timer" style="margin:2em;"></div>
+    </div>
+    <div class="col-xs-6">
+      <img src="{{recipe.image}}" />
+    </div>
+
+
+  </footer>
+
+</div>
+
