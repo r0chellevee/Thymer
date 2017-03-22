@@ -7,21 +7,27 @@ body {
 
 }
 .recipe {
-  border: 5px solid grey;
+  border: 10px solid #edf0f4;
   border-radius: 5px;
   margin: 10px;
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;*/
+  background-size: cover;
+  box-shadow: 10px 10px 20px #888888
 }
 .recipeTitle {
   color: white;
-  text-shadow: #000 0px 0px 1px;
+  font-family: 'Lobster Two', cursive;
+  font-size: 40px;
+  text-shadow: #000 2px 2px 3px;
 }
 .recipeDescription {
-  color: #d3d3d3;
-  text-shadow: #000 0px 0px 2px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px black;
+  list-style-type: none;
 }
 #description {
 /*  background-color: red;
@@ -30,7 +36,9 @@ body {
 }
 
 .newRecipeContainer {
-  border: solid 2px black;
+  border: 10px solid #edf0f4;
+  border-radius: 5px;
+  box-shadow: 10px 10px 20px #888888
 }
 /*.red {
   background-color: red;
@@ -53,9 +61,10 @@ body {
   visibility: hidden;
 }
 
-#nav-bar{
+.nav-bar{
   font-family: 'Lobster Two', cursive;
-  background-image: url("http://cdn.wallpapersafari.com/75/79/g86aNx.jpg");
+  font-size: 15px;
+  font-weight: bold;
 }
 
 #timer {
@@ -93,11 +102,17 @@ body {
 }
 .carousel{
     background: #2f4357;
-    margin-top: 20px;
+   /* margin-top: 20px;*/
 }
 .carousel .item img{
-    margin: 0 auto; /* Align slide image horizontally center */
+    margin: 0 auto;  Align slide image horizontally center
 }
 .bs-example{
-  margin: 20px;
+  /*margin: 20px;*/
+}
+.item {
+  width: auto;
+  height: 725px;
+  max-height: 725px;
+  margin-top:-200px
 }
