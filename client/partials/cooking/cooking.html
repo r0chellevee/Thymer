@@ -9,58 +9,53 @@
   <!--Assume one object is being received -->
 
     <div class="row-fluid">
-      {{recipe.title}}
-      <p class="cooking-title">Stir-Fried Rice</p>
+      <p class="cooking-title">{{recipe.title}}</p>
       <!-- need to eventually create a voice responsiveness  -->
      <!--  <div id="timer" class="col-4 col-sm-4" ng-click="onClick(timer[i])"><img src="https://storage.googleapis.com/instapage-website-live/files/wp-content/uploads/2016/01/Countdown-Timer.jpg" height="150" width="300"></div> -->
 
-      <div class="image">{{recipe.image}} </div>
+
         <div class="row-fluid">
-          <div id="ingredients" class="col-4 col-sm-4">{{recipe.ingredients}}
-            <ul class="list-group">
-              <li class="list-group-item">recipe.ingredients[i]</li>
-              <li class="list-group-item">recipe.ingredients[i]</li>
-              <li class="list-group-item">recipe.ingredients[i]</li>
-              <li class="list-group-item">recipe.ingredients[i]</li>
-              <li class="list-group-item">recipe.ingredients[i]</li>
-              <li class="list-group-item">recipe.ingredients[i]</li>
+          <div id="ingredients" class="col-4 col-sm-4">
+            <h3>Ingredients</h3>
+            <ul ng-repeat="ingredient in recipe.ingredients" class="list-group">
+              <li class="list-group-item">{{ingredient}}</li>
             </ul>
           </div>
         <!-- need to see if steps finishing will initiate the next step -->
 
         <div class="total-cook" id="timer" style="margin:2em;"></div>
-          <div class="total-time">60 mins</div>
 
-          <div class="row-fluid">
-            <div id="steps" class="col-5 col-sm-5">  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-              <div class="d-flex w-100 justify-content-between">
 
-                <h5 class="mb-1">Saute Onions</h5>
-                <small >3 min</small>
-              </div>
-              <p class="mb-1">Add 1 of coconut oil into a large sauce pan and heat at on a medium heat. Once the oil is hot, start to saute the onions for five minutes or until they start to brown.</p>
-              <small>You should take this time to checko on your rice.</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Add Rice and Stir</h5>
-                <small class="mins">200 min</small>
-
-                <div class="step-time" id="timer" style="margin:2em;"></div>
-
-              </div>
-              <p class="mb-1">Once the rice and onions are ready, mix the rice onto the sauce pan and start stirring it with the sauted onions. Do this for five minutes while adding in old bay.</p>
-              <small class="text-muted">If you don't think you need more old bay, you need more old bay.</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Scramble Egg</h5>
-                <small class="text-muted">4 min</small>
-              </div>
-              <p class="mb-1">Once you've added enough old bay and your rice is looking sufficiently seasoned, crack two eggs and scramble them into your stir fry. Keep mixing the dish until the eggs are cooked.</p>
-              <small class="text-muted">If your stir fry is looking ready earlier, turn down the heat and serve.</small>
-            </a></div>
+          <div class="row">
+            <div class="col-4 col-offset-8">
+                <div ng-repeat="step in recipe.steps" id="steps" >
+                  <small>{{step.totalMinutes}} min</small>
+                  <p>{{step.description}}</p>
+                </div>
+            </div>
           </div>
+
+
+
+
+          <!-- <div class="row-fluid">
+            <div class="col-4 col-offset-8">
+
+              <h3>How to Cook {{recipe.title}}</h3>
+              <div ng-repeat="step in recipe.steps" id="steps" >
+
+                <div class="col-5 col-offset-7 list-group-item list-group-item-action flex-column align-items-start active">
+                  <div class="col-5 col-offset-7"> -->
+<!--                     <small >{{step.totalMinutes}} min</small>
+                    <p>{{step.description}}</p>
+                  </div>
+                </div> -->
+
+              <!-- </div> -->
+            <!-- </div> -->
+          <!-- </div> - -->
 
       </div>
     </div>
+
+    <footer class="image" ng-style="{'background-image':'url({{recipe.image}})'}"></footer>
