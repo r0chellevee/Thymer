@@ -40,9 +40,10 @@
       <div class="row-fluid">
         <h3>How to Cook {{recipe.title}}</h3>
           <ul class="list-group">
-              <li ng-repeat="step in cookSteps" class="list-group-item">
+              <li id="step{{$index}}" ng-repeat="step in cookSteps" class="list-group-item">
                 <small>{{step.totalMinutes}} min</small>
                 <p>{{step.description}}</p>
+
               </li>
           </ul>
       </div>
