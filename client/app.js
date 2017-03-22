@@ -48,16 +48,27 @@ angular.module('thymer', [
       url: '/api/recipes',
       data: recipe
     });
+    };
 
+    var currentRecipe;
+
+    var getCurrentRecipe = function() {
+      return currentRecipe;
+    }
+    var setCurrentRecipe = function(recipe) {
+      currentRecipe = recipe;
+      console.log("currentRecipe: ", currentRecipe);
+    }
     //.then(function(newRecipe) {
       //redirect user to newly added recipe
       //how will we id each recipe
       //how will we display selected recipe for cookin view
     //});
-  };
 
   return {
     addRecipe: addRecipe,
-    getRecipes: getRecipes
+    getRecipes: getRecipes,
+    setCurrentRecipe: setCurrentRecipe,
+    getCurrentRecipe: getCurrentRecipe
   };
 });

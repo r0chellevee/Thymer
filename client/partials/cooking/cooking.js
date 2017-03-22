@@ -12,6 +12,7 @@ angular.module('thymer.cooking', [])
     }
   };
 
+
   FlipClock($('.total-cook'), totalTime, {
     clockFace: 'HourlyCounter',
     countdown: true,
