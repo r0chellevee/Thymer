@@ -23,8 +23,6 @@
     "flipclock": "^0.7.8",
     "jade": "^1.11.0",
     "mongo": "^0.1.0",
-    "mongoose": "^4.9.0",
-    "passport": "^0.3.2",
-    "passport-facebook": "^2.1.1"
+    "mongoose": "^4.9.0"
   }
 }
