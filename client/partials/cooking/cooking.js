@@ -18,11 +18,12 @@ angular.module('thymer.cooking', [])
     }
   });
 
+
   // creates the total timer
-  FlipClock($('.total-cook'), $scope.recipe.time * 60, {
+  var totalClock = FlipClock($('.total-cook'), $scope.recipe.time * 60, {
     clockFace: 'HourlyCounter',
     countdown: true,
-    autoStart: true
+    autoStart: false
   });
 
   var i = 0;
@@ -30,9 +31,22 @@ angular.module('thymer.cooking', [])
   var stepClock = new FlipClock($('.step-time'), $scope.cookStepTimes[i] * 60, {
     clockFace: 'MinuteCounter',
     countdown: true,
-    autoStart: true
+    autoStart: false
   });
 
+  var cookingStarted = false;
+
+  $scope.toggleCooking = function() {
+    if (!cookingStarted) {
+      totalClock.start();
+      stepClock.start();
+      cookingStarted = true;
+    } else {
+      totalClock.stop();
+      stepClock.stop();
+      cookingStarted = false;
+    }
+  }
   // creating a style for active ingredients
   var activeStyle = {
     'color': '#62E2CD',
@@ -49,7 +63,7 @@ angular.module('thymer.cooking', [])
 //checks to see whether the step timer is done
   setInterval(function(){
     // if step timer is done, increment to the next step
-    if (!stepClock.face.factory.running) {
+    if (!stepClock.face.factory.running && cookingStarted) {
       i++;
       var nextStepTime = $scope.cookStepTimes[i] * 60;
       //stops the step timer once the incrementor is the array length

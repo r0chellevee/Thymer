@@ -1,4 +1,4 @@
-<ul class="nav nav-tabs" id="nav-bar">
+<ul class="nav nav-tabs nav-bar">
   <li><a href="#/home">Home</a></li>
   <li><a href="#/newRecipe">New Recipe</a></li>
   <li class="active"><a href="#/cooking">Cooking</a></li>
@@ -14,7 +14,10 @@
 
   <div class="row">
     <div class="col-xs-6"><!-- Left Main Content Columns-->
-
+      <label class="switch">
+        <input ng-click="toggleCooking()" type="checkbox">
+        <div class="slider round"></div>
+      </label>
       <div class="row-fluid">
         <h3>Time Until Next Step</h3>
         <div class="step-time" id="timer" style="margin:2em;"></div>
