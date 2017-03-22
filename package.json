@@ -25,7 +25,6 @@
     "mongo": "^0.1.0",
     "mongoose": "^4.9.0",
     "passport": "^0.3.2",
-    "passport-facebook": "^2.1.1",
-    "slick-carousel": "^1.6.0"
+    "passport-facebook": "^2.1.1"
   }
 }
