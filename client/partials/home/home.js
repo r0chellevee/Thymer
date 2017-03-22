@@ -9,3 +9,4 @@ angular.module('thymer.home', [])
     $scope.recipes = data;
   });
 });
+
