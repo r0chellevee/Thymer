@@ -7,8 +7,9 @@ angular.module('thymer.searchRecipes', [])
   .then(function(data) {
     $scope.recipes = data;
   });
-  /*select recipe onClick
-      .then(function() {
-        $location.path('/cooking');
-      })*/
+
+  $scope.updateCurrentRecipe = function(recipe) {
+    Recipes.setCurrentRecipe(recipe);
+    $location.path('/cooking');
+    }
 });
