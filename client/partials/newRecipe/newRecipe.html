@@ -1,3 +1,6 @@
+
+<!--Nav Bar-->
+
   <ul class="nav nav-tabs nav-bar">
     <li><a href="#/index">Home</a></li>
     <li class="active"><a href="#/newRecipe">New Recipe</a></li>
@@ -5,27 +8,54 @@
     <li><a href="#/searchRecipes">All Recipes</a></li>
   </ul>
   <br>
+
+<!-- Large modal -->
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12" >
+            <h2>File Uploader</h2>
+            <div class="row">
+              <img class="col-xs-6" src="" id="img-preview" />
+            </div>
+            <button class="btn btn-lg upload-btn" type="button">Upload File</button>
+      </div>
+    </div>
+  </div>
+
+  <input id="upload-input" type="file" name="uploads[]" multiple="multiple"></br>
+
+   </div>
+  </div>
+</div>
+
+<!--New Recipe Page-->
+
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2 newRecipeContainer">
         <div class="row">
-          <div class="col-md-4 col-xs-4 red">Recipe Name</div>
-          <div class="col-md-4 col-xs-4 blue">Author</div>
-          <div class="col-md-4 col-xs-4 green">Servings</div>
+          <div class="col-xs-4 red">Recipe Name</div>
+          <div class="col-xs-4 blue">Author</div>
+          <div class="col-xs-4 green">Servings</div>
         </div>
         <div class="row">
-          <div class="col-md-4 col-xs-4 red"><input type="text" name="Title" placeholder="Title" ng-model="title"></div>
-          <div class="col-md-4 col-xs-4 red"><input type="text" name="Author" placeholder="Author" ng-model="author"></div>
-          <div class="col-md-4 col-xs-4 red"><input type="number" name="servings" placeholder="Servings" ng-model="servings"></div>
+          <div class="col-xs-4 red"><input type="text" name="Title" placeholder="Title" ng-model="title"></div>
+          <div class="col-xs-4 red"><input type="text" name="Author" placeholder="Author" ng-model="author"></div>
+          <div class="col-xs-4 red"><input type="number" name="servings" placeholder="Servings" ng-model="servings"></div>
         </div>
         <br>
         <div class="row">
-          <div class="col-md-6 col-xs-6">Recipe Description</div>
-          <div class="col-md-6 col-xs-6">Dietary Restrictions</div>
+          <div class="col-xs-6">Recipe Description</div>
+          <div class="col-xs-6">Dietary Restrictions</div>
         </div>
         <div class="row">
-          <div class="col-md-6 col-xs-6"><textarea rows="7" cols="35" name="description" placeholder="Introduce your recipe with a quick personal story!" ng-model="description"> </textarea></div>
-          <div class="col-md-4 col-xs-4">
+          <div class="col-xs-6"><textarea rows="7" cols="35" name="description" placeholder="Introduce your recipe with a quick personal story!" ng-model="description"> </textarea></div>
+          <div class="col-xs-4">
             <label class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" ng-model="vegan" ng-true-value="'Vegan'" ng-false-value="false">
             <span class="custom-control-indicator"></span>
@@ -54,12 +84,14 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 col-xs-6">Add an Image</div>
-          <div class="col-md-6 col-xs-6">Select Cuisine</div>
+          <div class="col-xs-6">
+            <button class="col-xs-6 col-xs-offset-3" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Upload Picture</button>
+          </div>
+          <div class="col-xs-6">Select Cuisine</div>
         </div>
         <div class="row">
-          <div class="col-md-6 col-xs-6"><input type="text" name="ImageURL" placeholder="Image URL" ng-model="image"></div>
-          <div class="col-md-6 col-xs-6">
+            <img class="col-xs-6" src="" id="img-form-preview" />
+          <div class="col-xs-6">
             <select required ng-model="cuisine" name="select type">
               <option value="American">American</option>
               <option value="Thai">Thai</option>
@@ -74,18 +106,18 @@
         </div>
         <br>
         <div class="row">
-          <div class="col-md-6 col-xs-6">Ingredients:</div>
-          <div class="col-md-6 col-xs-6">Steps:</div>
+          <div class="col-xs-6">Ingredients:</div>
+          <div class="col-xs-6">Steps:</div>
         </div>
         <div class="row">
-           <div class="col-xs-6 col-md-6">
+           <div class="col-xs-6">
               <ul>
                 <li ng-repeat="ingredient in ingredients track by $index">
                   {{ingredient}}
                 </li>
               </ul>
             </div>
-            <div class="col-md-6 col-xs-6">
+            <div class="col-xs-6">
               <ol>
                 <li ng-repeat="step in steps"> <!-- cooking steps  -->
                   <span>{{displayTime(step.totalMinutes)}}</span>
@@ -95,31 +127,31 @@
             </div>
           </div>
         <div class="row">
-          <div class="col-md-1 col-xs-1"><input ng-model="ingredientQty" type="text" name="QTY" placeholder="QTY"></div>
-          <div class="col-md-3 col-xs-3"><input ng-model="ingredientName" type="text" name="ingredients" placeholder="ingredient"></div>
-          <div class="col-md-2 col-xs-2"><button ng-click="addIngredient()">Add</button></div>
-          <div class="col-md-2 col-xs-2">
+          <div class="col-xs-1"><input ng-model="ingredientQty" type="text" name="QTY" placeholder="QTY"></div>
+          <div class="col-xs-3"><input ng-model="ingredientName" type="text" name="ingredients" placeholder="ingredient"></div>
+          <div class="col-xs-2"><button ng-click="addIngredient()">Add</button></div>
+          <div class="col-xs-2">
             <select required ng-model="stepType" name="select type">
               <option value="prepType">Prep Step</option>
               <option value="cookType">Cook Step</option>
             </select>
           </div>
-          <div class="col-md-1 col-xs-1">
+          <div class="col-xs-1">
             <input ng-model="hrs" class="timeInput" type="number" min="0" max="24" step="1" value="0">hrs
           </div>
-          <div class="col-md-1 col-xs-1"><input ng-model="min" class="timeInput" type="number" min="0" max="59" step="1" value="0">min
+          <div class="col-xs-1"><input ng-model="min" class="timeInput" type="number" min="0" max="59" step="1" value="0">min
           </div>
         </div>
         <div class="row">
-          <div class="col-md-5 col-xs-5 col-md-offset-6 col-xs-offset-6">
+          <div class="col-xs-5 col-md-offset-6 col-xs-offset-6">
             <textarea ng-model="stepDescription" rows="3" cols="35" name="step description" placeholder="Explain the next step here!">
             </textarea> <!-- step text input box -->
           </div>
-          <div class="col-md-1 col-xs-1"><button ng-click="addStep()">Add</button></div>
+          <div class="col-xs-1"><button ng-click="addStep()">Add</button></div>
         </div>
         <br>
           <div class="row">
-            <div class="col-md-3 col-xs-3 col-md-offset-5s col-xs-offset-5"><button ng-click="submitRecipe()"> Submit Recipe</button></div>
+            <div class="col-xs-3 col-md-offset-5s col-xs-offset-5"><button ng-click="submitRecipe()"> Submit Recipe</button></div>
           </div>
         <br>
     </div>
