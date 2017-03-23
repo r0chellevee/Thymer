@@ -19,7 +19,10 @@ angular.module('thymer.cooking', [])
         $scope.toggleOnAndOff();
       }
     });
-  });
+    window.onhashchange = function () {
+        $scope.stopCooking();
+      };
+    });
 
    // toggles Cooking table visibility
   Recipes.visible();
@@ -47,6 +50,7 @@ angular.module('thymer.cooking', [])
     stepClock.stop();
     cookingStarted = false;
   }
+
 
   // creates the total timer
   var totalClock = FlipClock($('.total-cook'), $scope.recipe.time * 60, {
