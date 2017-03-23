@@ -17,12 +17,16 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-xs-12" >
-            <h2>File Uploader</h2>
+      <div class="col-xs-12 text-center" >
+            <h2>Upload Picture of your Dish!</h2>
             <div class="row">
-              <img class="col-xs-6" src="" id="img-preview" />
+              <img class="col-xs-6 col-xs-offset-3"  src="" id="img-preview" />
             </div>
-            <button class="btn btn-lg upload-btn" type="button">Upload File</button>
+            <button class="btn btn-lg upload-btn col-xs-6 col-xs-offset-3" type="button">Upload From Computer</button>
+
+              <input class="col-xs-6 col-xs-offset-3" type="text" name="Link" placeholder="or add url" ng-model="addImageByUrl" style="padding:10px; text-align: center;" id="url-input">
+
+              <button class="btn btn-sm col-xs-4 col-xs-offset-4" type="button" id="back">Back to Recipe</button>
       </div>
     </div>
   </div>
@@ -90,8 +94,8 @@
           <div class="col-xs-6">Select Cuisine</div>
         </div>
         <div class="row">
-            <img class="col-xs-6" src="" id="img-form-preview" />
-          <div class="col-xs-6">
+            <img class="col-xs-4 col-xs-offset-1" src="" id="img-form-preview" />
+          <div class="col-xs-6 col-xs-offset-1" >
             <select required ng-model="cuisine" name="select type">
               <option value="American">American</option>
               <option value="Thai">Thai</option>
