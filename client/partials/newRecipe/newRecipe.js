@@ -115,6 +115,16 @@ angular.module('thymer.newRecipe', [])
       $('.progress-bar').width('0%');
   });
 
+  $('#url-input').on('change', function() {
+    $scope.image = $scope.addImageByUrl;
+    console.log($scope.addImageByUrl)
+    imgPreview.src = $scope.addImageByUrl;
+    imgFormPreview.src = $scope.addImageByUrl;
+  });
+
+ $('#back').on('click', function() {
+    $('.modal').modal('hide')
+  });
 
   $('#upload-input').on('change', function(event){
 
