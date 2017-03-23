@@ -3,7 +3,7 @@ angular.module('thymer.newRecipe', [])
 .controller('newRecipeController', function($scope, Recipes, $location) {
 
   $scope.steps = [];
-
+  Recipes.visible();
   $scope.addStep = function() {
     var totalMinutesForStep = $scope.min + (60 * $scope.hrs);
     var newStep = {

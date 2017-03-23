@@ -53,6 +53,14 @@ angular.module('thymer', [
 
   var currentRecipe;
 
+  var visible = function(){
+    if(currentRecipe) {
+      $('.cookingTab').css('visibility', 'visible');
+    } else {
+      $('.cookingTab').removeAttr('visibility').css('visibility', 'hidden');
+    }
+  }
+
   var getCurrentRecipe = function() {
     return currentRecipe;
   };
@@ -71,6 +79,7 @@ angular.module('thymer', [
     addRecipe: addRecipe,
     getRecipes: getRecipes,
     setCurrentRecipe: setCurrentRecipe,
-    getCurrentRecipe: getCurrentRecipe
+    getCurrentRecipe: getCurrentRecipe,
+    visible: visible
   };
 });
