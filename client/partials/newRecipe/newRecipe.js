@@ -101,4 +101,43 @@ angular.module('thymer.newRecipe', [])
         $location.path('/searchRecipes');
       });
   };
+
+//////CLOUDINARY UPLOAD IMAGE//////////
+  var imgPreview = document.getElementById('img-preview');
+  var imgFormPreview = document.getElementById('img-form-preview');
+
+  var CLOUDINARY_URL =  'https://api.cloudinary.com/v1_1/dcjoeciha/upload';
+  var CLOUDINARY_UPLOAD_PRESET = "ceydn5w3";
+
+  $('.upload-btn').on('click', function (){
+      $('#upload-input').click();
+      $('.progress-bar').text('0%');
+      $('.progress-bar').width('0%');
+  });
+
+
+  $('#upload-input').on('change', function(event){
+
+    var file = event.target.files[0];
+    var formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+    axios({
+      url: CLOUDINARY_URL,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data: formData
+    }).then(function(res) {
+      console.log(res);
+      imgPreview.src = res.data.secure_url;
+      imgFormPreview.src = res.data.secure_url;
+      $scope.image = res.data.secure_url;
+    }).catch(function(err) {
+      console.error(err)
+    })
+  });
+
 });
