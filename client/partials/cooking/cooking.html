@@ -5,7 +5,7 @@
   <li><a href="#/searchRecipes">All Recipes</a></li>
 </ul>
 
-<div class="container-fluid">
+<div class="container-fluid" keypress-events>
 
   <div class="row"> <!-- Recipe Title Row-->
     <p class="cooking-title">{{recipe.title}}</p>
@@ -13,13 +13,20 @@
 
   <div class="row">
     <div class="col-xs-6"><!-- Left Main Content Columns-->
-      <label class="switch">
-        <input ng-click="toggleCooking()" type="checkbox">
-        <div class="slider round"></div>
-      </label>
+    <!-- Toggle Switch to start and stop timers -->
+      <div class="row">
+        <div class="col-xs-8 col-md-4">
+          <h3>Time Until Next Step</h3>
+        </div>
+        <div class="col-xs-2" style="padding-top: 25px;">
+          <label class="switch">
+            <input ng-click="toggleCooking()" type="checkbox">
+            <div class="slider round"></div>
+          </label>
+        </div>
+      </div>
       <div class="row-fluid">
-        <h3>Time Until Next Step</h3>
-        <div class="step-time" id="timer" style="margin:2em;"></div>
+        <div class="step-time" id="timer" ></div>
       </div>
 
       <div class="row-fluid">
@@ -45,6 +52,8 @@
               <li id="step{{$index}}" ng-repeat="step in cookSteps" class="list-group-item">
                 <small>{{step.totalMinutes}} min</small>
                 <p>{{step.description}}</p>
+                <video id="vid{{$index}}" controls autoplay name="media" class="vsc-initialized">
+                </video>
 
               </li>
           </ul>
@@ -55,7 +64,7 @@
   <footer class="row-fluid">
     <div class="col-xs-6">
       <h3>Time Until This:</h3>
-      <div class="total-cook" id="timer" style="margin:2em;"></div>
+      <div class="total-cook" id="timer"></div>
     </div>
     <div class="col-xs-6">
       <img src="{{recipe.image}}" />

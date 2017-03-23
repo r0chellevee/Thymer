@@ -36,17 +36,6 @@ angular.module('thymer.cooking', [])
 
   var cookingStarted = false;
 
-  $scope.toggleCooking = function() {
-    if (!cookingStarted) {
-      totalClock.start();
-      stepClock.start();
-      cookingStarted = true;
-    } else {
-      totalClock.stop();
-      stepClock.stop();
-      cookingStarted = false;
-    }
-  }
   // creating a style for active ingredients
   var activeStyle = {
     'color': '#62E2CD',
@@ -55,10 +44,22 @@ angular.module('thymer.cooking', [])
     'background-color': '#FFE8BC'
   }
 
-  // initializes first step styling - TODO initiate on click
-  setTimeout(function() {
-      $('#step' + i).css(activeStyle);
-  }, 10)
+  $scope.toggleCooking = function() {
+    if (!cookingStarted) {
+      totalClock.start();
+      stepClock.start(function() {
+          $('#step' + i).css(activeStyle);
+        // appends audio onto each step at start
+          $('#vid' + i).append('<source src="http://api.voicerss.org/?key=c005359f68ec4ab89c485808abf9c53c&hl=en-gb&src=' + $scope.cookSteps[i].description + '"' + ' type="audio/mpeg">')
+        });
+      cookingStarted = true;
+    } else {
+      totalClock.stop();
+      stepClock.stop();
+      cookingStarted = false;
+    }
+  }
+
 
 //checks to see whether the step timer is done
   setInterval(function(){
@@ -87,7 +88,11 @@ angular.module('thymer.cooking', [])
         });
         // initiating the next step countdown
         stepClock.setTime(nextStepTime);
-        stepClock.start();
+        // cb function
+        stepClock.start(function() {
+          // appending audio onto each step
+          $('#vid' + i).append('<source src="http://api.voicerss.org/?key=c005359f68ec4ab89c485808abf9c53c&hl=en-gb&src=' + $scope.cookSteps[i].description + '"' + ' type="audio/mpeg">')
+        });
       }
     };
   }, 1000);
