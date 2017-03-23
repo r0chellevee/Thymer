@@ -11,7 +11,7 @@
     <p class="cooking-title">{{recipe.title}}</p>
   </div>
   <div class="row">
-    <div class="col-xs-6"><!-- Left Main Content Columns-->
+    <div class="col-xs-12 col-md-6"><!-- Left Main Content Columns-->
     <!-- Toggle Switch to start and stop timers -->
       <div class="row">
         <div class="col-xs-8 col-md-4">
@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="row-fluid">
-        <div class="step-time" id="timer" ></div>
+        <div ng-click="toggleOnAndOff()" class="step-time" id="timer" ></div>
       </div>
 
       <div class="row-fluid">
@@ -44,7 +44,7 @@
 
     </div>
 
-    <div class="col-xs-6"> <!-- Right Main Content Columns-->
+    <div class="col-xs-12 col-md-6"> <!-- Right Main Content Columns-->
       <div class="row-fluid">
         <h3>How to Cook {{recipe.title}}</h3>
           <ul class="list-group">
@@ -63,9 +63,9 @@
   <footer class="row">
     <div class="col-xs-6">
       <h3>Time Until This:</h3>
-      <div class="total-cook" id="timer"></div>
+      <div ng-click="toggleOnAndOff()" class="total-cook" id="timer"></div>
     </div>
-      <img class="col-xs-6" src="{{recipe.image}}" />
+      <img class="col-xs-3" id="recipe-image" src="{{recipe.image}}" />
 
 
   </footer>
