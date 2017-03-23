@@ -1,6 +1,14 @@
 angular.module('thymer.cooking', [])
 
 .controller('cookingController', function($scope, Recipes) {
+  // toggle the start and stop function with 'space' key
+   $(document).ready(function() {
+    $(document).keydown(function(e) {
+      if (e.keyCode === 0 || e.keyCode === 32 || e.key === 'space') {
+        $scope.toggleCooking();
+      }
+    });
+  })
 
   $scope.recipe = Recipes.getCurrentRecipe();
 
