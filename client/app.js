@@ -40,7 +40,7 @@ angular.module('thymer', [
       return res.data;
     });
   };
-    
+
 
   var addRecipe = function(recipe) {
     recipe = angular.toJson(recipe);
