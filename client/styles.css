@@ -1,11 +1,11 @@
 body {
-    /*background-image: url("http://media.istockphoto.com/photos/fresh-organic-vegetables-spoons-rustic-wooden-backgroundvegetarian-picture-id503054794?k=6&m=503054794&s=170667a&w=0&h=_n2E6s6KOGBGPjI1wOoZ1aw1nSwVnWxpwPTn69tIXXk=");
+    background-image: url("http://cdn.wallpapersafari.com/75/79/g86aNx.jpg");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;*/
-
+    background-size: cover;
 }
+
 .recipe {
   border: 10px solid #edf0f4;
   border-radius: 5px;
@@ -63,7 +63,7 @@ body {
 
 .nav-bar{
   font-family: 'Lobster Two', cursive;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: bold;
 }
 /*.cookingTab {
@@ -83,6 +83,15 @@ body {
   border-radius: 15px;
 }
 
+p{
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+}
+
+h3{
+  font-family: 'Lobster Two', cursive;
+}
+
 .cooking-title{
   text-align: center;
   font-family: 'Lobster Two', cursive;
@@ -92,6 +101,7 @@ body {
   -moz-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
   border-radius: 15px;
+  background-color: white;
 }
 
 .list-group{

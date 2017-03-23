@@ -5,10 +5,20 @@ angular.module('thymer.cooking', [])
    $(document).ready(function() {
     $(document).keydown(function(e) {
       if (e.keyCode === 0 || e.keyCode === 32 || e.key === 'space') {
-        $scope.toggleCooking();
+        // styles slider based on 'space'
+        if($('#checkbox').is(':checked')) {
+          $scope.toggleCooking();
+          $('#checkbox').attr('checked', false); // Checks it
+        } else {
+          $scope.toggleCooking();
+          $('#checkbox').attr('checked', true);
+        }
+        // $('#checkbox').attr('checked', false); // Unchecks it
       }
     });
-  })
+  });
+
+   // toggles Cooking table visibility
   Recipes.visible();
   $scope.recipe = Recipes.getCurrentRecipe();
 
@@ -26,6 +36,14 @@ angular.module('thymer.cooking', [])
     }
   });
 
+  // stops the cooking cycle when changing tabs
+  // this is NECESSARY when leaving the cooking tab if the cooking process
+  // has not been stopped
+  $scope.stopCooking = function() {
+    totalClock.stop();
+    stepClock.stop();
+    cookingStarted = false;
+  }
 
   // creates the total timer
   var totalClock = FlipClock($('.total-cook'), $scope.recipe.time * 60, {
