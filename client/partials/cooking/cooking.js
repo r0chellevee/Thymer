@@ -1,19 +1,22 @@
 angular.module('thymer.cooking', [])
 
 .controller('cookingController', function($scope, Recipes) {
+
+  // styles slider based on 'space' and clicking the timer
+   $scope.toggleOnAndOff = function() {
+    if($('#checkbox').is(':checked')) {
+      $scope.toggleCooking();
+      $('#checkbox').attr('checked', false);
+    } else {
+      $scope.toggleCooking();
+      $('#checkbox').attr('checked', true);
+    }
+  }
   // toggle the start and stop function with 'space' key
    $(document).ready(function() {
     $(document).keydown(function(e) {
       if (e.keyCode === 0 || e.keyCode === 32 || e.key === 'space') {
-        // styles slider based on 'space'
-        if($('#checkbox').is(':checked')) {
-          $scope.toggleCooking();
-          $('#checkbox').attr('checked', false); // Checks it
-        } else {
-          $scope.toggleCooking();
-          $('#checkbox').attr('checked', true);
-        }
-        // $('#checkbox').attr('checked', false); // Unchecks it
+        $scope.toggleOnAndOff();
       }
     });
   });
@@ -54,8 +57,13 @@ angular.module('thymer.cooking', [])
 
   var i = 0;
   //creates the local timer
+  var clockFormat = 'MinuteCounter';
+  if ($scope.cookStepTimes[i] > 60) {
+    clockFormat = 'HourlyCounter';
+  }
+
   var stepClock = new FlipClock($('.step-time'), $scope.cookStepTimes[i] * 60, {
-    clockFace: 'MinuteCounter',
+    clockFace: clockFormat,
     countdown: true,
     autoStart: false
   });
