@@ -1,8 +1,8 @@
 <ul class="nav nav-tabs nav-bar">
   <li><a href="#/home">Home</a></li>
   <li><a href="#/newRecipe">New Recipe</a></li>
-  <li class="active"><a href="#/cooking">Cooking</a></li>
   <li><a href="#/searchRecipes">All Recipes</a></li>
+  <li class="active cookingTab"><a href="#/cooking">Cooking</a></li>
 </ul>
 
 <div class="container-fluid" keypress-events>
@@ -60,14 +60,12 @@
     </div>
   </div>
 
-  <footer class="row-fluid">
+  <footer class="row">
     <div class="col-xs-6">
       <h3>Time Until This:</h3>
       <div class="total-cook" id="timer"></div>
     </div>
-    <div class="col-xs-6">
-      <img src="{{recipe.image}}" />
-    </div>
+      <img class="col-xs-6" src="{{recipe.image}}" />
 
 
   </footer>

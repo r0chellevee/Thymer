@@ -9,7 +9,7 @@ angular.module('thymer.cooking', [])
       }
     });
   })
-
+  Recipes.visible();
   $scope.recipe = Recipes.getCurrentRecipe();
 
   $scope.cookSteps = [];
