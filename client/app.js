@@ -5,11 +5,14 @@ angular.module('thymer', [
   'thymer.searchRecipes',
   'ngRoute'
 ])
+
+// this first step is needed to redirect on page reloads within the cooking tab
 .run(function ($location) {
   console.dir($location);
   if ($location.$$path === '/cooking')
   $location.path('/searchRecipes');
 })
+
 .config(function($routeProvider) {
   $routeProvider
   .when('/', {
@@ -36,6 +39,8 @@ angular.module('thymer', [
 .factory('Recipes', function($http) {
   //this is scaled to small DB, in the event of bigger DB we will need to fine-tune
   //the function to perform a filter on the backend rather then the front
+
+  // get request to get all the recipes
   var getRecipes = function() {
     return $http ({
       method: 'GET',
@@ -45,7 +50,7 @@ angular.module('thymer', [
     });
   };
 
-
+  // post request to add recipes
   var addRecipe = function(recipe) {
     recipe = angular.toJson(recipe);
     return $http ({
@@ -55,8 +60,7 @@ angular.module('thymer', [
     });
   };
 
-  var currentRecipe;
-
+  // sets the visibility for the cooking tab in navigation
   var visible = function(){
     if(currentRecipe) {
       $('.cookingTab').css('visibility', 'visible');
@@ -65,19 +69,19 @@ angular.module('thymer', [
     }
   }
 
+  var currentRecipe;
+
+  // returns the current recipe once it has been set
+  // this step is for cooking.js
   var getCurrentRecipe = function() {
     return currentRecipe;
   };
 
+  // sets the current recipe once it has been clicked
+  // this step is for searchRecipe.js
   var setCurrentRecipe = function(recipe) {
     currentRecipe = recipe;
-    // console.log("currentRecipe: ", currentRecipe);
   };
-    //.then(function(newRecipe) {
-      //redirect user to newly added recipe
-      //how will we id each recipe
-      //how will we display selected recipe for cookin view
-    //});
 
   return {
     addRecipe: addRecipe,
