@@ -25,11 +25,13 @@ body {
   box-shadow: 10px 10px 20px #888888
 }
 
-#search-recipes{
+input,
+textarea {
   font-family: 'Comfortaa', cursive;
   font-weight: bold;
   border-radius: 15px;
 }
+
 .recipeTitle {
   color: white;
   font-family: 'Lobster Two', cursive;
@@ -44,10 +46,10 @@ body {
   list-style-type: none;
   font-family: 'Comfortaa', cursive;
 }
-#description {
-/*  background-color: red;
-  width: 100px;
-  height: 100px;*/
+
+button {
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
 }
 
 .newRecipeContainer {
