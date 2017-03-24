@@ -7,7 +7,7 @@ angular.module('thymer.newRecipe', [])
   $scope.addStep = function() {
     var totalMinutesForStep = $scope.min + (60 * $scope.hrs);
     var newStep = {
-      type: $scope.stepType,
+      type: 'cookType',
       description: $scope.stepDescription,
       totalMinutes: totalMinutesForStep
     };
@@ -71,16 +71,6 @@ angular.module('thymer.newRecipe', [])
       $scope.carnivoritarian
     ].filter(v => v !== false );
 
-    // console.log('time: ', cookTime());
-    // console.log('ingredients: ', $scope.ingredients);
-    // console.log('steps: ', $scope.steps);
-    // console.log('title: ', $scope.title);
-    // console.log('author: ', $scope.author);
-    // console.log('diet: ', diet);
-    // console.log('cuisine: ', $scope.cuisine);
-    // console.log('image: ', $scope.image);
-    // console.log('description: ', $scope.description);
-
     var recipe = {
       time: cookTime(), // done
       servings: $scope.servings,  // done
@@ -94,7 +84,6 @@ angular.module('thymer.newRecipe', [])
       description: $scope.description //done
     };
 
-    // console.log(recipe);
     //send to server and db
     Recipes.addRecipe(recipe)
       .then(function() {
@@ -109,7 +98,7 @@ angular.module('thymer.newRecipe', [])
   var CLOUDINARY_URL =  'https://api.cloudinary.com/v1_1/dcjoeciha/upload';
   var CLOUDINARY_UPLOAD_PRESET = "ceydn5w3";
 
-  $('.upload-btn').on('click', function (){
+  $('.upload-btn').on('click', function() {
       $('#upload-input').click();
       $('.progress-bar').text('0%');
       $('.progress-bar').width('0%');
@@ -117,16 +106,15 @@ angular.module('thymer.newRecipe', [])
 
   $('#url-input').on('change', function() {
     $scope.image = $scope.addImageByUrl;
-    console.log($scope.addImageByUrl)
     imgPreview.src = $scope.addImageByUrl;
     imgFormPreview.src = $scope.addImageByUrl;
   });
 
  $('#back').on('click', function() {
-    $('.modal').modal('hide')
+    $('.modal').modal('hide');
   });
 
-  $('#upload-input').on('change', function(event){
+  $('#upload-input').on('change', function(event) {
 
     var file = event.target.files[0];
     var formData = new FormData();
@@ -146,8 +134,8 @@ angular.module('thymer.newRecipe', [])
       imgFormPreview.src = res.data.secure_url;
       $scope.image = res.data.secure_url;
     }).catch(function(err) {
-      console.error(err)
-    })
+      console.error(err);
+    });
   });
 
 });

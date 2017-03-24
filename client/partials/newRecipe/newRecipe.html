@@ -125,20 +125,13 @@
           <textarea ng-model="stepDescription" rows="3" cols="35" name="step description" placeholder="Explain the next step here!">
           </textarea> <!-- step text input box -->
         </div>
-        <div class="col-xs-4" style="padding: 5px; padding-left: 15px;">
-          <select required ng-model="stepType" name="select type">
-            <option value="prepType">Prep Step</option>
-            <option value="cookType">Cook Step</option>
-          </select>
-        </div>
-        <div class="col-xs-3" style="padding: 5px;">
+        <div class="col-xs-3 col-xs-offset-2" style="padding: 5px;">
           <input ng-model="hrs" class="timeInput" type="number" min="0" max="24" step="1" value="0">hrs
         </div>
         <div class="col-xs-3" style="padding: 5px;">
           <input ng-model="min" class="timeInput" type="number" min="0" max="59" step="1" value="0">min
         </div>
-        <br>
-        <div class="col-xs-2 col-xs-offset-4" style="padding-top:15px;" >
+        <div class="col-xs-3" style="padding-top:5px;" >
           <button ng-click="addStep()" style="border-radius:5px;">Add</button>
         </div>
       </div> <!-- end right main columns -->
