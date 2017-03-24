@@ -2,34 +2,67 @@ angular.module('thymer.newRecipe', [])
 
 .controller('newRecipeController', function($scope, Recipes, $location) {
 
-  $scope.steps = [];
   Recipes.visible();
-  $scope.addStep = function() {
-    var totalMinutesForStep = $scope.min + (60 * $scope.hrs);
+
+  // $scope.steps = [];
+  // $scope.addStep = function() {
+  //   var totalMinutesForStep = $scope.min + (60 * $scope.hrs);
+  //   var newStep = {
+  //     type: 'cookType',
+  //     description: $scope.stepDescription,
+  //     totalMinutes: totalMinutesForStep
+  //   };
+  //   $scope.steps.push(newStep);
+  //   $scope.min = 0;
+  //   $scope.hrs = 0;
+  //   $scope.stepDescription = '';
+  // };
+
+  // $scope.displayTime = function(totalMinutes) {
+  //   if (totalMinutes < 60) {
+  //     return `${totalMinutes} min `;
+  //   } else {
+  //     var hrs = Math.floor(totalMinutes / 60);
+  //     var min = totalMinutes % 60;
+  //     return `${hrs} hr ${min} min `;
+  //   }
+  // };
+
+
+  $scope.steps = [];
+  //initialize step time values to 0
+  $scope.newMins = 0;
+  $scope.newHrs = 0;
+
+  $scope.addStep = function(){
     var newStep = {
-      type: 'cookType',
-      description: $scope.stepDescription,
-      totalMinutes: totalMinutesForStep
+      mins: $scope.newMins,
+      hrs: $scope.newHrs,
+      totalMinutes: (60 * $scope.newHrs) + $scope.newMins,
+      description: $scope.newStepDescription,
+      type: 'cookType'
     };
     $scope.steps.push(newStep);
-    $scope.min = 0;
-    $scope.hrs = 0;
-    $scope.stepDescription = '';
+    $scope.newMins = 0;
+    $scope.newHrs = 0;
+    $scope.newStepDescription = '';
   };
 
-  //initialize step time values to 0
-  $scope.min = 0;
-  $scope.hrs = 0;
-
-  $scope.displayTime = function(totalMinutes) {
-    if (totalMinutes < 60) {
-      return `${totalMinutes} min `;
-    } else {
-      var hrs = Math.floor(totalMinutes / 60);
-      var min = totalMinutes % 60;
-      return `${hrs} hr ${min} min `;
-    }
+  $scope.delete = function(index) {
+    $scope.steps.splice(index, 1);
   };
+
+  $scope.edit = function(index){
+    angular.extend($scope.steps[index], {editing:true});
+  };
+
+  $scope.save = function(index){
+    delete $scope.steps[index].editing;
+    var step = $scope.steps[index];
+    step.totalMinutes = (60 * step.hrs) + step.mins;
+    console.dir($scope.steps);
+  };
+
 
   //initialize diet checkbox values to false
   $scope.vegan = false;
@@ -49,6 +82,57 @@ angular.module('thymer.newRecipe', [])
     console.log($scope.ingredients);
   };
 
+
+
+  //////CLOUDINARY UPLOAD IMAGE//////////
+  var imgPreview = document.getElementById('img-preview');
+  var imgFormPreview = document.getElementById('img-form-preview');
+
+  var CLOUDINARY_URL =  'https://api.cloudinary.com/v1_1/dcjoeciha/upload';
+  var CLOUDINARY_UPLOAD_PRESET = "ceydn5w3";
+
+  $('.upload-btn').on('click', function() {
+      $('#upload-input').click();
+      $('.progress-bar').text('0%');
+      $('.progress-bar').width('0%');
+  });
+
+  $('#url-input').on('change', function() {
+    $scope.image = $scope.addImageByUrl;
+    imgPreview.src = $scope.addImageByUrl;
+    imgFormPreview.src = $scope.addImageByUrl;
+  });
+
+  $('#back').on('click', function() {
+    $('.modal').modal('hide');
+  });
+
+  $('#upload-input').on('change', function(event) {
+
+    var file = event.target.files[0];
+    var formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+    axios({
+      url: CLOUDINARY_URL,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data: formData
+    }).then(function(res) {
+      console.log(res);
+      imgPreview.src = res.data.secure_url;
+      imgFormPreview.src = res.data.secure_url;
+      $scope.image = res.data.secure_url;
+    }).catch(function(err) {
+      console.error(err);
+    });
+  });
+
+
+  //////Submit Recipe to DB//////////
   $scope.submitRecipe = function() {
 
     var cookTime = function() {
@@ -90,52 +174,5 @@ angular.module('thymer.newRecipe', [])
         $location.path('/searchRecipes');
       });
   };
-
-//////CLOUDINARY UPLOAD IMAGE//////////
-  var imgPreview = document.getElementById('img-preview');
-  var imgFormPreview = document.getElementById('img-form-preview');
-
-  var CLOUDINARY_URL =  'https://api.cloudinary.com/v1_1/dcjoeciha/upload';
-  var CLOUDINARY_UPLOAD_PRESET = "ceydn5w3";
-
-  $('.upload-btn').on('click', function() {
-      $('#upload-input').click();
-      $('.progress-bar').text('0%');
-      $('.progress-bar').width('0%');
-  });
-
-  $('#url-input').on('change', function() {
-    $scope.image = $scope.addImageByUrl;
-    imgPreview.src = $scope.addImageByUrl;
-    imgFormPreview.src = $scope.addImageByUrl;
-  });
-
- $('#back').on('click', function() {
-    $('.modal').modal('hide');
-  });
-
-  $('#upload-input').on('change', function(event) {
-
-    var file = event.target.files[0];
-    var formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-
-    axios({
-      url: CLOUDINARY_URL,
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      data: formData
-    }).then(function(res) {
-      console.log(res);
-      imgPreview.src = res.data.secure_url;
-      imgFormPreview.src = res.data.secure_url;
-      $scope.image = res.data.secure_url;
-    }).catch(function(err) {
-      console.error(err);
-    });
-  });
 
 });
