@@ -6,6 +6,14 @@ body {
     background-size: cover;
 }
 
+.logo{
+  padding-top: 7px;
+  padding-right: 7px;
+  font-color:#555555;
+  width: 200;
+  height: 50px;
+}
+
 .recipe {
   border: 10px solid #edf0f4;
   border-radius: 5px;
