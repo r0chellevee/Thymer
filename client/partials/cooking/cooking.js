@@ -1,7 +1,6 @@
 angular.module('thymer.cooking', [])
 
-.controller('cookingController', function($scope, Recipes) {
-
+.controller('cookingController', function($scope, Recipes, $location) {
   // styles slider based on 'space' and clicking the timer
    $scope.toggleOnAndOff = function() {
     if($('#checkbox').is(':checked')) {
@@ -13,7 +12,7 @@ angular.module('thymer.cooking', [])
     }
   }
   // toggle the start and stop function with 'space' key
-   $(document).ready(function() {
+  $(document).ready(function() {
     $(document).keydown(function(e) {
       if (e.keyCode === 0 || e.keyCode === 32 || e.key === 'space') {
         $scope.toggleOnAndOff();
@@ -21,8 +20,8 @@ angular.module('thymer.cooking', [])
     });
     window.onhashchange = function () {
         $scope.stopCooking();
-      };
-    });
+    };
+  });
 
    // toggles Cooking table visibility
   Recipes.visible();

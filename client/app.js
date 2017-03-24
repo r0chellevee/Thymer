@@ -5,7 +5,11 @@ angular.module('thymer', [
   'thymer.searchRecipes',
   'ngRoute'
 ])
-
+.run(function ($location) {
+  console.dir($location);
+  if ($location.$$path === '/cooking')
+  $location.path('/searchRecipes');
+})
 .config(function($routeProvider) {
   $routeProvider
   .when('/', {
