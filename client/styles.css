@@ -125,7 +125,7 @@ h3{
   font-weight: bold;
 }
 .carousel{
-    background: #2f4357;
+/*    background: #2f4357;*/
    /* margin-top: 20px;*/
 }
 .carousel .item img{
@@ -138,7 +138,7 @@ h3{
   width: auto;
   height: 725px;
   max-height: 725px;
-  margin-top:-200px
+/*  margin-top:-200px*/
 }
 
 #recipe-image{
