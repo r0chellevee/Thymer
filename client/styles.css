@@ -1,5 +1,5 @@
 body {
-    background-image: url("http://cdn.wallpapersafari.com/75/79/g86aNx.jpg");
+    background-color: #95D2DC;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -9,6 +9,7 @@ body {
 .logo{
   padding-top: 7px;
   padding-right: 7px;
+  margin-bottom: -5px;
   font-color:#555555;
   width: 200;
   height: 50px;
@@ -25,11 +26,21 @@ body {
   box-shadow: 10px 10px 20px #888888
 }
 
+/*SETS FONT STYLING FOR SPECIFICS*/
+.forgotten-items,
+.select-style,
 input,
-textarea {
+textarea,
+tr,
+label {
   font-family: 'Comfortaa', cursive;
   font-weight: bold;
+  padding: 5px;
   border-radius: 15px;
+}
+
+h2{
+  font-family: 'Lobster Two', cursive;
 }
 
 .recipeTitle {
@@ -38,6 +49,12 @@ textarea {
   font-size: 40px;
   text-shadow: #000 2px 2px 3px;
 }
+
+#search-recipes{
+  margin-left: 10px;
+  width: 100%;
+}
+
 .recipeDescription {
   color: white;
   font-size: 15px;
@@ -49,49 +66,66 @@ textarea {
 
 button {
   font-family: 'Comfortaa', cursive;
-  font-weight: bold;
+}
+
+#closeFailedSubmitModal,
+#back{
+  background-color: #95D2DC;
+  color: white;
 }
 
 .newRecipeContainer {
+  background-color: #E9EBE3;
   border: 10px solid #edf0f4;
   border-radius: 5px;
   box-shadow: 10px 10px 20px #888888
 }
-/*.red {
-  background-color: red;
+
+.submit-recipe,
+.btn-salmon{
+  background-color: #874B78;
+  color: white;
 }
-.blue {
-  background-color: blue;
+
+.submit-recipe:hover,
+.btn-salmon:hover{
+  background-color: #C96274;
+  color: white;
 }
-.green {
-  background-color: green;
-}*/
-/*#steps {
-  -webkit-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
-  box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
-  margin: 0 0 10px 10px;
-  border-radius: 15px;
-}*/
 
 .total-time {
   visibility: hidden;
 }
 
 .nav-bar{
+    background-color: #E9EBE3;
+}
+
+.nav-bar li a{
   font-family: 'Lobster Two', cursive;
   font-size: 18px;
   font-weight: bold;
+  background-color: #E9EBE3;
+  color: #874B78;
 }
-/*.cookingTab {
-  visibility: hidden;
-}*/
+.nav-bar li.active:hover a,
+.nav-bar li.active a{
+    background-color: #95D2DC;
+    color: #E9EBE3;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
 #timer {
   background-color: white;
   -webkit-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
-/*  float: right;*/
   font-family: 'Lobster Two', cursive;
   margin: 10px;
   width: 350px;
@@ -110,15 +144,16 @@ h3{
 }
 
 .cooking-title{
+  margin-top: 15px;
   text-align: center;
   font-family: 'Lobster Two', cursive;
-  color: red;
+  color: #C96274;
   font-size: 50px;
   -webkit-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
   border-radius: 15px;
-  background-color: white;
+  background-color: #E9EBE3;
 }
 
 .list-group{
@@ -134,16 +169,11 @@ h3{
   font-family: 'Comfortaa', cursive;
   font-weight: bold;
 }
-.carousel{
-/*    background: #2f4357;*/
-   /* margin-top: 20px;*/
-}
+
 .carousel .item img{
-    margin: 0 auto;  Align slide image horizontally center
+    margin: 0 auto;  /*Align slide image horizontally center*/
 }
-.bs-example{
-  /*margin: 20px;*/
-}
+
 .item {
   width: auto;
   height: 725px;
@@ -152,12 +182,7 @@ h3{
 }
 
 #recipe-image{
-  width: auto;
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-left: 35px;
-  height: 350px;
-  max-height: 350px;
+  width: 100%;
   border-radius: 15px;
   border: solid 10px white;
 }
