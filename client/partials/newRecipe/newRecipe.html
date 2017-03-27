@@ -58,7 +58,7 @@
               <td class="col-xs-2">
                 <button class="btn btn-xs btn-primary" ng-click="editIngredient($index)" ng-if="!ingredient.editing">Edit</button>
                 <span ng-if="ingredient.editing">
-                  <button type="submit" class="btn btn-xs btn-salmon" ng-click="saveIngredient($index)">Save</button>
+                  <button type="submit" class="btn btn-xs newRecipe-btn" ng-click="saveIngredient($index)">Save</button>
                   <button type="button" class="btn btn-xs btn-default" ng-click="deleteIngredient($index)">Delete</button>
                 </span>
               </td>
@@ -68,7 +68,7 @@
               <td>
                 <input type="text" class="form-control" ng-model="newIngredient" placeholder="Enter Quantity and Type" />
               <td>
-                <button type="submit" id="addIngredientButton" class="btn btn-xs btn-salmon" ng-click="addIngredient()">Add</button>
+                <button type="submit" id="addIngredientButton" class="btn btn-xs newRecipe-btn" ng-click="addIngredient()">Add</button>
                 </td>
             </tr>
           </tbody>
@@ -132,7 +132,7 @@
 
         <div class="col-xs-12">
           <br>
-          <button class="col-xs-6 col-xs-offset-2 btn btn-salmon" type="button" data-toggle="modal" data-target=".bs-example-modal-lg" style="border-radius:5px;">Add a Picture</button>
+          <button class="col-xs-6 col-xs-offset-2 btn newRecipe-btn" type="button" data-toggle="modal" data-target=".bs-example-modal-lg" style="border-radius:5px;">Add a Picture</button>
         </div>
         <div class="col-xs-12">
           <br>
@@ -167,7 +167,7 @@
             <td>
               <button class="btn btn-xs btn-primary" ng-click="edit($index)" ng-if="!step.editing">Edit</button>
               <span ng-if="step.editing">
-                  <button type="submit" class="btn btn-xs btn-salmon" ng-click="save($index)">Save</button>
+                  <button type="submit" class="btn btn-xs newRecipe-btn" ng-click="save($index)">Save</button>
                   <button type="button" class="btn btn-xs btn-default" ng-click="delete($index)">Delete</button>
               </span>
             </td>
@@ -184,7 +184,7 @@
               <input type="text" class="form-control" ng-model="newStepDescription"/>
             </td>
             <td>
-              <button type="submit" id="addStepButton" class="btn btn-xs btn-salmon" ng-click="addStep()">Add Step</button>
+              <button type="submit" id="addStepButton" class="btn btn-xs newRecipe-btn" ng-click="addStep()">Add Step</button>
             </td>
           </tr>
         </tbody>

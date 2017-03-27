@@ -1,3 +1,6 @@
+/*BODY STYLING*/
+
+/*-------------------------ALL PAGES-------------------------*/
 body {
     background-color: #95D2DC;
     height: 100%;
@@ -15,6 +18,7 @@ body {
   height: 50px;
 }
 
+/*-------------------------SEARCH RECIPES STYLING-------------------------*/
 .recipe {
   border: 10px solid #edf0f4;
   border-radius: 5px;
@@ -24,23 +28,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: 10px 10px 20px #888888
-}
-
-/*SETS FONT STYLING FOR SPECIFICS*/
-.forgotten-items,
-.select-style,
-input,
-textarea,
-tr,
-label {
-  font-family: 'Comfortaa', cursive;
-  font-weight: bold;
-  padding: 5px;
-  border-radius: 15px;
-}
-
-h2{
-  font-family: 'Lobster Two', cursive;
 }
 
 .recipeTitle {
@@ -64,37 +51,16 @@ h2{
   font-family: 'Comfortaa', cursive;
 }
 
-button {
+/*-------------------------GENERALIZED FONT STYLING-------------------------*/
+
+p{
   font-family: 'Comfortaa', cursive;
+  font-weight: bold;
 }
 
-#closeFailedSubmitModal,
-#back{
-  background-color: #95D2DC;
-  color: white;
-}
-
-.newRecipeContainer {
-  background-color: #E9EBE3;
-  border: 10px solid #edf0f4;
-  border-radius: 5px;
-  box-shadow: 10px 10px 20px #888888
-}
-
-.submit-recipe,
-.btn-salmon{
-  background-color: #874B78;
-  color: white;
-}
-
-.submit-recipe:hover,
-.btn-salmon:hover{
-  background-color: #C96274;
-  color: white;
-}
-
-.total-time {
-  visibility: hidden;
+h2,
+h3{
+  font-family: 'Lobster Two', cursive;
 }
 
 .nav-bar{
@@ -121,6 +87,72 @@ button {
     1px 1px 0 #000;
 }
 
+button {
+  font-family: 'Comfortaa', cursive;
+}
+
+.forgotten-items,
+.select-style,
+input,
+textarea,
+tr,
+label {
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+
+/*-------------------------NEW RECIPE-----------------------*/
+#closeFailedSubmitModal,
+#back{
+  background-color: #95D2DC;
+  color: white;
+}
+
+.newRecipeContainer {
+  background-color: #E9EBE3;
+  border: 10px solid #edf0f4;
+  border-radius: 5px;
+  box-shadow: 10px 10px 20px #888888
+}
+
+.submit-recipe,
+.newRecipe-btn{
+  background-color: #874B78;
+  color: white;
+}
+
+.submit-recipe:hover,
+.newRecipe-btn:hover{
+  background-color: #C96274;
+  color: white;
+}
+
+/*Upload Image Modal*/
+
+.upload-btn {
+  color: #ffffff;
+  background-color: #F89406;
+  border: none;
+}
+
+.upload-btn:hover,
+.upload-btn:focus,
+.upload-btn:active,
+.upload-btn.active {
+  color: #ffffff;
+  background-color: #FA8900;
+  border: none;
+}
+
+#upload-input {
+  display: none;
+}
+
+
+/*-------------------COOKING-------------------------*/
 #timer {
   background-color: #E9EBE3;
   -webkit-box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
@@ -132,15 +164,6 @@ button {
   height: 150px;
   padding: 25px;
   border-radius: 15px;
-}
-
-p{
-  font-family: 'Comfortaa', cursive;
-  font-weight: bold;
-}
-
-h3{
-  font-family: 'Lobster Two', cursive;
 }
 
 .cooking-title{
@@ -171,17 +194,6 @@ h3{
   background-color: #E9EBE3;
 }
 
-.carousel .item img{
-    margin: 0 auto;  /*Align slide image horizontally center*/
-}
-
-.item {
-  width: auto;
-  height: 725px;
-  max-height: 725px;
-/*  margin-top: 50px*/
-}
-
 #recipe-image{
   width: 96%;
   margin-left: 20px;
@@ -192,9 +204,6 @@ h3{
   box-shadow: 10px 10px 28px -12px rgba(0,0,0,0.75);
 }
 
-.vsc-initialized{
-  opacity: 0.5;
-}
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -206,7 +215,7 @@ h3{
 /* Hide default HTML checkbox */
 .switch input {display:none;}
 
-/* The slider */
+/* The slider toggle button */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -254,34 +263,22 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-/*Upload Image Modal*/
-
-.upload-btn {
-  color: #ffffff;
-  background-color: #F89406;
-  border: none;
-
-}
-
-.upload-btn:hover,
-.upload-btn:focus,
-.upload-btn:active,
-.upload-btn.active {
-  color: #ffffff;
-  background-color: #FA8900;
-  border: none;
-}
-
-#upload-input {
-  display: none;
-}
-
 .vsc-initialized{
   margin-top: -125px;
   border-radius: 15px;
+  opacity: 0.5;
 }
 
+/*-------------------------HOME-------------------------*/
+.carousel .item img{
+    margin: 0 auto;  /*Align slide image horizontally center*/
+}
 
+.item {
+  width: auto;
+  height: 725px;
+  max-height: 725px;
+}
 
 
 
