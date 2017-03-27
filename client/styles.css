@@ -6,14 +6,6 @@ body {
     background-size: cover;
 }
 
-.logo{
-  padding-top: 7px;
-  padding-right: 7px;
-  font-color:#555555;
-  width: 200;
-  height: 50px;
-}
-
 .recipe {
   border: 10px solid #edf0f4;
   border-radius: 5px;
@@ -25,13 +17,11 @@ body {
   box-shadow: 10px 10px 20px #888888
 }
 
-input,
-textarea {
+#search-recipes{
   font-family: 'Comfortaa', cursive;
   font-weight: bold;
   border-radius: 15px;
 }
-
 .recipeTitle {
   color: white;
   font-family: 'Lobster Two', cursive;
@@ -46,10 +36,10 @@ textarea {
   list-style-type: none;
   font-family: 'Comfortaa', cursive;
 }
-
-button {
-  font-family: 'Comfortaa', cursive;
-  font-weight: bold;
+#description {
+/*  background-color: red;
+  width: 100px;
+  height: 100px;*/
 }
 
 .newRecipeContainer {
