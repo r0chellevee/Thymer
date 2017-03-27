@@ -6,16 +6,16 @@
   <img class="logo" align="right" src="../Logo-2.png">
 </ul>
 
-<div class="container-fluid" keypress-events>
+<div class="container" keypress-events>
 
   <div class="row"> <!-- Recipe Title Row-->
     <p class="cooking-title">{{recipe.title}}</p>
   </div>
   <div class="row">
-    <div class="col-xs-12 col-md-6"><!-- Left Main Content Columns-->
+    <div class="col-xs-12 col-md-4"><!-- Left Main Content Columns-->
     <!-- Toggle Switch to start and stop timers -->
       <div class="row">
-        <div class="col-xs-8 col-md-4">
+        <div class="col-xs-8 col-md-8">
           <h3>Time Until Next Step</h3>
         </div>
         <div class="col-xs-2" style="padding-top: 25px;">
@@ -35,9 +35,13 @@
               <li ng-repeat="ingredient in recipe.ingredients" class="list-group-item">{{ingredient}}</li>
           </ul>
       </div>
+      <div>
+        <h3>Time Until Deliciousness:</h3>
+        <div ng-click="toggleOnAndOff()" class="total-cook" id="timer"></div>
+      </div>
     </div>
 
-    <div class="col-xs-12 col-md-6"> <!-- Right Main Content Columns-->
+    <div class="col-xs-12 col-md-6 col-md-offset-2"> <!-- Right Main Content Columns-->
       <div class="row-fluid">
         <h3>How to Cook {{recipe.title}}</h3>
           <ul class="list-group">
@@ -49,19 +53,11 @@
 
               </li>
           </ul>
+      <div>
+        <img id="recipe-image" src="{{recipe.image}}" />
+      </div>
       </div>
     </div>
   </div>
-
-  <footer class="row">
-    <div class="col-xs-6">
-      <h3>Time Until This:</h3>
-      <div ng-click="toggleOnAndOff()" class="total-cook" id="timer"></div>
-    </div>
-      <img class="col-xs-3" id="recipe-image" src="{{recipe.image}}" />
-
-
-  </footer>
-
 </div>
 

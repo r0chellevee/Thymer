@@ -78,10 +78,10 @@ angular.module('thymer.cooking', [])
 
   // creating a style for active ingredients
   var activeStyle = {
-    'color': '#62E2CD',
+    'color': '#874B78',
     'font-size': '25px',
     'font-weight': 'bold',
-    'background-color': '#FFE8BC'
+    'background-color': '#FFE372'
   }
 
   // initiates the cooking process
@@ -117,16 +117,17 @@ angular.module('thymer.cooking', [])
         // styles specific steps based on whether they are active or complete
         $('#step' + i).css(activeStyle);
         $('#step' + (i-1)).css({
-          'color': 'black',
+          'color': '#E9EBE3',
           'font-size': '14px',
           'font-weight': 'normal',
-          'background-color': '#96E0FA'
+          'background-color': '#874B78'
         })
         // adding in the check-mark glyphicon
         $('#step' + (i-1) + ' small').append('<span class="glyphicon glyphicon-ok-circle"></span>');
         $('.glyphicon').css({
           'font-size': '25px',
-          'float': 'right'
+          'float': 'right',
+          'color': '#E9EBE3'
         });
         // initiating the next step countdown
         stepClock.setTime(nextStepTime);
