@@ -266,6 +266,7 @@ input:checked + .slider:before {
 .vsc-initialized{
   margin-top: -125px;
   border-radius: 15px;
+<<<<<<< HEAD
   opacity: 0.5;
 }
 
@@ -280,3 +281,6 @@ input:checked + .slider:before {
   max-height: 725px;
 }
 
+=======
+}
+>>>>>>> a32483b2290cbe841d7db4c29605e0d3c72591b5
