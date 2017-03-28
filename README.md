@@ -16,6 +16,20 @@ From the root directory of your local version of this repo, install back end dep
 
 Run the application with a terminal command of 'node server.js'. Then navigate to port 3000 on your local host to interact with the project as a user.
 
+## Navigating Files
+
+**Flipclock Folder**
+The flipclock folder contains all the information relevant to the flipclock. While the flipclock website is helpful in showing what methods can be applied to the flipclock, the files themselves have a multitude of built-in functions that can be utilized and customized whichever way you want.
+
+**Images Folder**
+The Images folder contains the images for the home carousel. We relied upon these files rather than DB information for consistency and ease, however Legacy groups may want to implement a server-based carousel design
+
+**Partials Folder**
+Contains the crux of our program. Each section is divided into its corresponding route. The auth folder was created in the event that Legacy projects wanted to use authorization in the site.
+
+**Logo-2**
+Hard-coded logo to use on the site.
+
 ## API Reference
 
 Our API references include the following:
