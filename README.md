@@ -1,3 +1,12 @@
+## COLOR SCHEME
+
+#FFE372 - I Can't Believe its Not Nathan!
+#C96274 - Fresh Out' da River Salmon
+#95D2DC - Bluebra Soufelet
+#874B78 - Poppin Eggplant
+#E9EBE3 - Ostrich Eggshell
+#FFAA67 - Diet Peach Sorbet
+
 ## Synopsis
 
 **Thymer** is a full stack web application that allows users to navigate their kitchen with comfort and confidence. Thymer is a platform for users to write, save, and search recipes based on their specific needs. Thymer integrates text-to-speech and automatic timers to help the user cook without ever having to get their computer messy.
@@ -51,3 +60,18 @@ Nathan Brewer-Davis - Senior Developer (API specialist)
 Copywrite Thymer LLC 1999 - pending
 
 MIT.
+
+## LEGACY
+Here are a few ideas we would have wanted to implement:
+- Voice integration and responsiveness (so that the timer could start and stop based on voice commands)
+- Filter based on multiple search criteria (right now, recipes can only be searched by one keyword at a time)
+- Responsive get request so that the entire DB isn't being received at once
+- Make New Recipe tab mobile-friendly
+- Adding a sound to the timer
+- Click to start a step
+- User Auth
+- Social Media integration to share recipes
+- Possible integration of other recipe APIs
+- Allow users to favorite recipes
+- Allow users to upvote, downvote, and comment on recipes
+- Add in caloric intake field
