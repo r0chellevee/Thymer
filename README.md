@@ -1,3 +1,12 @@
+## COLOR SCHEME
+
+#FFE372 - I Can't Believe its Not Nathan!
+#C96274 - Fresh Out' da River Salmon
+#95D2DC - Bluebra Soufelet
+#874B78 - Poppin Eggplant
+#E9EBE3 - Ostrich Eggshell
+#FFAA67 - Diet Peach Sorbet
+
 ## Synopsis
 
 **Thymer** is a full stack web application that allows users to navigate their kitchen with comfort and confidence. Thymer is a platform for users to write, save, and search recipes based on their specific needs. Thymer integrates text-to-speech and automatic timers to help the user cook without ever having to get their computer messy.
